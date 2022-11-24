@@ -14,7 +14,7 @@ import useTranslation from 'hooks/useTranslation';
 import { TUser } from 'types/user';
 import { LOGIN_REDIRECT_ROUTE } from 'constants/index';
 import { AFTER_LOGIN_ROUTE, SIGNOUT_ROUTE } from 'constants/routes';
-import { UserDocument, useUserQuery } from 'generated/graphql';
+import { UserDocument, useSsoMutation, useUserQuery } from 'generated/graphql';
 
 type TUserContextProvider = {
   user: TUser;
@@ -42,12 +42,11 @@ const UserContextProvider: React.FC<any> = (props) => {
 
   const getProfile = async () => {
     try {
-      console.log(client.query);
-
-      const { data } = await client.query({
-        query: UserDocument,
-        fetchPolicy: 'network-only',
-      });
+      const { data } =
+        (await client.query({
+          query: UserDocument,
+          fetchPolicy: 'network-only',
+        })) || {};
 
       setUser((newUser: any) =>
         newUser ? { ...newUser, ...data?.profile } : { ...newUser?.profile }
@@ -55,7 +54,7 @@ const UserContextProvider: React.FC<any> = (props) => {
 
       setLoading(() => false);
     } catch (error) {
-      console.error(error);
+      console.error('getProfile error', error);
       setLoading(false);
     }
   };
@@ -74,7 +73,7 @@ const UserContextProvider: React.FC<any> = (props) => {
         id: username,
       };
     } catch (error) {
-      console.error(error);
+      console.error('getCurrentUser error', error);
       throw error;
     }
   };
@@ -92,19 +91,19 @@ const UserContextProvider: React.FC<any> = (props) => {
 
   useEffect(() => {
     if (userData) {
-      setUser({ ...user, ...userData });
+      // setUser({ ...user, ...userData });
     }
   }, [userData]);
 
   const init = useCallback(async () => {
     try {
       setLoading(true);
-      const user = await getCurrentUser();
+      // const user = await getCurrentUser();
 
-      setUser(user);
+      // setUser(user);
       await getProfile();
     } catch (error) {
-      console.error(error);
+      console.error(1, error);
       setLoading(false);
     }
   }, []);
@@ -127,9 +126,13 @@ const UserContextProvider: React.FC<any> = (props) => {
     }
   };
 
+  const [ssoSignIn] = useSsoMutation();
+
   const login = async (credentials: any) => {
     try {
-      // cognitoUserRef.current = await Auth.signIn(credentials.email);
+      const data = await ssoSignIn(credentials);
+      console.log(data);
+      setUser(data);
     } catch (error) {
       console.error(error);
       // eslint-disable-next-line @typescript-eslint/no-use-before-define

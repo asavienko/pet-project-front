@@ -94,15 +94,6 @@ const MobileMenu = ({ authMenu }: TProps) => {
             >
               <T id="common.signIn" defaultMessage={'Sign In'} />
             </Button>
-            <Button
-              component={Link}
-              to={ROUTES.LOGIN}
-              variant={'contained'}
-              className={styles.bottomButton}
-              onClick={handleToggle}
-            >
-              <T defaultMessage={'Start free trial'} />
-            </Button>
           </div>
         )}
       </div>

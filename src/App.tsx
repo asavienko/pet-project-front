@@ -4,29 +4,37 @@ import StyledEngineProvider from '@mui/material/StyledEngineProvider';
 import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary';
 import theme from './theme';
 import { InternalizationContextProvider, UserContextProvider } from './context';
 import Navigation from './routing/Navigation';
 import { client, snackbarConfig } from './config';
+import Error from 'components/templates/Error';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <ApolloProvider client={client()}>
+    <ApolloProvider client={client()}>
+      <InternalizationContextProvider>
         <StyledEngineProvider injectFirst>
-          <InternalizationContextProvider>
-            <Router>
+          <ThemeProvider theme={theme}>
+            <ErrorBoundary
+              onError={(e) => {
+                console.log(e);
+              }}
+              fallbackRender={() => <Error />}
+            >
               <SnackbarProvider {...snackbarConfig}>
-                <UserContextProvider>
-                  {/* <Navigation /> */}
-                  <div>123</div>
-                </UserContextProvider>
+                <Router>
+                  <UserContextProvider>
+                    <Navigation />
+                  </UserContextProvider>
+                </Router>
               </SnackbarProvider>
-            </Router>
-          </InternalizationContextProvider>
+            </ErrorBoundary>
+          </ThemeProvider>
         </StyledEngineProvider>
-      </ApolloProvider>
-    </ThemeProvider>
+      </InternalizationContextProvider>
+    </ApolloProvider>
   );
 }
 

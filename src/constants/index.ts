@@ -4,5 +4,5 @@ export const LOGIN_REDIRECT_ROUTE = '';
 
 export enum LOCALE {
   ENGLISH = 'en',
-  UKRAINE = 'ua',
+  UKRAINE = 'uk',
 }

@@ -1,4 +1,4 @@
-export const OATH_EVENT = 'OATH_EVENT';
+export const OAUTH_EVENT = 'OAUTH_EVENT';
 export const DEFAULT_TIME_ZONE = 'Europe/London';
 
 // @ts-ignore

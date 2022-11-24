@@ -22,18 +22,11 @@ const Footer: React.VFC<TProps> = ({ className, fullWidth }) => {
       <footer
         className={cx(styles.root, fullWidth && styles.fullWidth, className)}
       >
-        <div className={styles.copyrightContainer}>
-          <div className={styles.copyright}>© 2022 — SoPlan.com</div>
-          {isSmallDevice && (
-            <LanguageSwitcher variant="text" languageVersion="short" />
-          )}
-        </div>
-
         <div className={styles.socialContainer}>
           {!isSmallDevice && (
             <LanguageSwitcher variant="text" languageVersion="short" />
           )}
-          <SocialButtons className={styles.socialButtons} />
+          {/* <SocialButtons className={styles.socialButtons} /> */}
         </div>
       </footer>
     </>

@@ -20,7 +20,7 @@
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@formatjs/intl-pluralrules": "^4.3.2",
-    "@formatjs/ts-transformer": "^3.8.1",
+    "@formatjs/ts-transformer": "^3.11.1",
     "@hookform/resolvers": "^2.8.3",
     "@loadable/component": "^5.15.2",
     "@microsoft/microsoft-graph-client": "^3.0.1",
@@ -38,7 +38,7 @@
     "add": "^2.0.6",
     "apollo": "^2.33.9",
     "apollo-link-http": "^1.5.17",
-    "babel-plugin-formatjs": "^10.3.11",
+    "babel-plugin-formatjs": "^10.3.31",
     "browser-image-compression": "^1.0.17",
     "classnames": "^2.3.1",
     "copy-to-clipboard": "^3.3.1",
@@ -76,6 +76,7 @@
     "react-dropzone": "^11.4.2",
     "react-easy-crop": "^3.5.3",
     "react-error-boundary": "^3.1.4",
+    "react-github-login": "^1.0.3",
     "react-google-login": "^5.2.2",
     "react-helmet": "^6.1.0",
     "react-hook-form": "7.22.5",
@@ -133,6 +134,7 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^19.0.2",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-formatjs": "^4.3.4",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
@@ -142,8 +144,9 @@
     "husky": "^7.0.4",
     "js-yaml": "^4.1.0",
     "prettier": "^2.5.1",
-    "typescript": "^4.6.4",
-    "vite": "^3.2.4"
+    "vite": "^3.2.4",
+    "vite-plugin-babel": "^1.1.2",
+    "yarn": "^1.22.19"
   },
   "eslintConfig": {
     "extends": [

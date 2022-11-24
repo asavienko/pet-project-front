@@ -33,7 +33,7 @@ const SocialButtons: React.FC<TProps> = ({ className }) => {
         href={LINKEDIN_LINK}
         target="_blank"
         rel="noreferrer"
-        title={t({ defaultMessage: 'SoPlan LinkedIn profile' })}
+        title={t({ defaultMessage: 'LinkedIn profile' })}
       >
         <LinkedInIcon fontSize="inherit" />
       </IconLink>

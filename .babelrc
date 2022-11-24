@@ -1,0 +1,21 @@
+{
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@emotion",
+    [
+      "formatjs",
+      {
+        "additionalFunctionNames": [
+          "t"
+        ],
+        "additionalComponentNames": [
+          "T"
+        ],
+        "idInterpolationPattern": "[sha512:contenthash:base64:6]",
+        "removeDefaultMessage": true,
+        "ast": true
+      }
+    ]
+  ]
+}
+

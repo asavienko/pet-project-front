@@ -1,7 +1,9 @@
 @import './mixins';
 
 @import './components/autocomplete.scss';
-@import './components/intro.js.scss';;
+@import './components/intro.js.scss';
+
+;
 
 :root {
   --primary-color: #0075FF;
@@ -39,8 +41,6 @@
   --color-danger: #FE3F6D;
 
 
-
-
   --spacing-1: 2px;
   --spacing-2: 4px;
   --spacing-3: 8px;
@@ -48,7 +48,7 @@
   --spacing-5: 16px;
   --spacing-6: 24px;
   --spacing-7: 32px;
-  
+
 
   --fontFamily: EuclidCircularA;
 
@@ -77,7 +77,7 @@ body {
   line-height: 1.3;
   color: var(--color-font-primary);
   overflow-x: hidden;
-  
+
 
   @include bottomBarActiveQuery {
     &.so-auth-route {
@@ -135,25 +135,11 @@ a {
   padding: 0;
 }
 
-#chatlio-widget-container {
-  bottom: 5px;
-}
-
-
-.SnackbarContainer-root .SnackbarContent-root {
-  flex-wrap: nowrap;
-}
-
-.chatlio-widget {
-  z-index: var(--zIndexChatlio);
-}
-
-a#CybotCookiebotDialogPoweredbyCybot,div#CybotCookiebotDialogPoweredByText {
-  // disable cookie bot branding
-  display: none;
-}
-
-
-.CUSTOM_DATE_PICKER .PrivatePickersToolbar-root {
-  display: none;
+.clear {
+  display: inline;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: inherit;
 }

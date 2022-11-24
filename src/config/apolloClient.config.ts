@@ -4,7 +4,9 @@ import { createHttpLink } from 'apollo-link-http';
 import { IS_DEV } from '../constants/app';
 
 const publicLink = ApolloLink.from([
+  // @ts-ignore
   createHttpLink({
+    // @ts-ignore
     uri: import.meta.env.VITE_GRAPHQL_ENDPOINT,
   }),
 ]);
@@ -32,5 +34,6 @@ export const client = () =>
       publicLink
     ),
     cache,
+    // @ts-ignore
     defaultOptions,
   });

@@ -1,6 +1,6 @@
 import { Popper } from '@mui/material';
 
-const CustomPopper = (props) => (
+const CustomPopper = (props: any) => (
   <Popper
     {...props}
     style={{ ...props.style, transition: 'none' }}

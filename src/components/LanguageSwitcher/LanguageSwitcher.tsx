@@ -34,9 +34,9 @@ const LanguageSwitcher: React.VFC<TProps> = ({
       shortLabel: 'EN',
     },
     {
-      value: LOCALE.UA,
-      label: ISO6391.getNativeName('ua'),
-      shortLabel: 'HI',
+      value: LOCALE.UK,
+      label: ISO6391.getNativeName('uk'),
+      shortLabel: 'UK',
     },
   ];
 

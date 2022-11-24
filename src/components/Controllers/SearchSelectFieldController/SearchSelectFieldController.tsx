@@ -11,7 +11,7 @@ const SearchSelectFieldController = ({
   options,
   onChange,
   ...props
-}) => (
+}: any) => (
   <Controller
     control={control}
     name={name}
@@ -29,7 +29,6 @@ const SearchSelectFieldController = ({
         renderInput={(params) => (
           <StyledTextField
             variant="outlined"
-            fullWidth
             name={name}
             {...params}
             label={props.label}

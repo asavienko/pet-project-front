@@ -27,8 +27,9 @@ module.exports = {
       },
     },
   },
-  plugins: ['react', 'prettier', '@typescript-eslint', 'import'],
+  plugins: ['react', 'prettier', '@typescript-eslint', 'import', 'formatjs'],
   rules: {
+    'formatjs/no-offset': 'error',
     'import/prefer-default-export': 'off',
     'import/first': 'error',
     'import/extensions': [

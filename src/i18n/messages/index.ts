@@ -1,10 +1,11 @@
-import { LOCALE } from 'constants';
 import en from './en.json';
-import ua from './ua.json';
+import uk from './uk.json';
+
+import { LOCALE } from 'constants/';
 
 const translations = {
   [LOCALE.ENGLISH]: en,
-  [LOCALE.UKRAINE]: ua,
+  [LOCALE.UKRAINE]: uk,
 };
 
 export default translations;

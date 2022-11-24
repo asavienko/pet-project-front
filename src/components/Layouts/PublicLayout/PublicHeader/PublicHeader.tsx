@@ -25,11 +25,6 @@ const PublicHeader = () => (
           <T id="common.signIn" defaultMessage={'Sign In'} />
         </Button>
       </Link>
-      <Link to={ROUTES.LOGIN}>
-        <Button variant={'contained'} className={styles.freeTrial}>
-          <T defaultMessage={'Start free trial'} />
-        </Button>
-      </Link>
       <MobileMenu />
     </div>
   </div>

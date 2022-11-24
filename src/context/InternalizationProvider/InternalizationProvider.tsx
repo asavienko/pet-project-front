@@ -15,7 +15,7 @@ type TInternalizationContext = {
 
 const formatLocalizationMap = {
   [LOCALE.ENGLISH]: en,
-  [LOCALE.UA]: ua,
+  [LOCALE.UK]: ua,
 };
 
 const calculateLocale = (locale: LOCALE, browserLocale: string) => {

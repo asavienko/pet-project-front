@@ -7,9 +7,9 @@ export const ROUTES_MAP = {
 
   REGISTRATION_PROFILE: { auth: false, path: REGISTRATION_PROFILE },
 
-  OATH_REDIRECT: {
+  OAUTH_REDIRECT: {
     auth: false,
-    path: '/v1/oath2/redirect',
+    path: '/v1/oauth/redirect',
   },
 };
 

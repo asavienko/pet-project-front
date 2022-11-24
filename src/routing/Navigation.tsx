@@ -11,10 +11,10 @@ import ScrollToTop from 'components/ScrollToTop';
 import NotFound from 'components/templates/NotFound';
 import ProfileInfo from 'components/templates/Registration/ProfileInfo';
 import PublicLayout from 'components/Layouts/PublicLayout';
-import HomePage from 'components/templates/HomePage';
 
-import OathRedirect from 'pages/OauthRedirect';
+import OauthRedirect from 'pages/OauthRedirect';
 import Authentication from 'pages/Authentication';
+import HomePage from 'pages/Home';
 
 import { ROUTES } from 'constants/routes';
 
@@ -29,7 +29,7 @@ const Navigation = () => (
             </Route>
           </Route>
         </Route>
-        <Route path={ROUTES.OATH_REDIRECT} element={<OathRedirect />} />
+        <Route path={ROUTES.OAUTH_REDIRECT} element={<OauthRedirect />} />
 
         <Route element={<PageLayout />}>
           <Route element={<LoginOutlet />}>
@@ -40,10 +40,10 @@ const Navigation = () => (
         <Route element={<PublicLayout />}>
           <Route path={ROUTES.HOME} element={<HomePage />} />
         </Route>
+        <Route element={<GreyLayout />}>
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
-      <Route element={<GreyLayout />}>
-        <Route path="*" element={<NotFound />} />
-      </Route>
     </ScrollToTop>
   </Suspense>
 );

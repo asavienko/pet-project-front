@@ -13,7 +13,7 @@ const LoginOutlet = () => {
     return <LoadingLayout />;
   }
 
-  if (user) {
+  if (user && user.id) {
     return (
       <Navigate
         to={{

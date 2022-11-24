@@ -6,11 +6,11 @@ import { ROUTES } from '../constants/routes';
 
 const Authentication = () => {
   const { login } = useUserContext();
-  const { navigate } = useNavigate();
+  const navigate = useNavigate();
 
-  const handleLogin = async (credentials) => {
+  const handleLogin = async (credentials: any) => {
     await login(credentials);
-    navigate(ROUTES.OATH_REDIRECT);
+    navigate(ROUTES.OAUTH_REDIRECT);
   };
 
   return <Login onSubmit={handleLogin} />;

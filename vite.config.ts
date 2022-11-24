@@ -1,13 +1,15 @@
-import { defineConfig } from 'vite';
 import * as path from 'path';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import react from '@vitejs/plugin-react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   define: {
     global: { test: 1 },
   },
-  plugins: [react()],
+  plugins: [react({ babel: { babelrc: true } })],
   resolve: {
     alias: [
       {

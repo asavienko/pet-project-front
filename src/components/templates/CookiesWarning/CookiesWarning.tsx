@@ -10,7 +10,7 @@ const CookiesWarning = () => (
         Storage disabled
       </Typography>
       <Typography variant="body3">
-        Please make sure cookies are enabled while using SoPlan.com
+        Please make sure cookies are enabled while using this site
       </Typography>
       <Typography variant="body3" component="p">
         If enabling cookies doesn't help try to enable localStorage and
