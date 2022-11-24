@@ -1,0 +1,87 @@
+.so-date-picker {
+  position: relative;
+
+  .MuiPickerStaticWrapper-root {
+    & > div > div {
+      width: 100%;
+      height: auto;
+      max-height: 367px;
+    }
+
+    .MuiCalendarPicker-viewTransitionContainer {
+      height: 310px;
+    }
+
+    .MuiCalendarPicker-root {
+      width: 100%;
+      height: auto;
+      max-height: none;
+    }
+
+
+    .MuiTypography-caption {
+      flex: 1;
+      text-transform: lowercase;
+      display: block;
+      height: 46px;
+      line-height: 46px;
+      color: #8494B5;
+      font-size: 14px;
+      font-weight: 400;
+
+      &::first-letter {
+        text-transform: capitalize;
+        // font-size: 222px !important;
+      }
+    }
+
+
+    .PrivatePickersSlideTransition-root {
+      [role="presentation"] {
+        font-size: 14px;
+        line-height: 1.3;
+        margin-left: -24px;
+      }
+
+      [role="row"] {
+
+        & > div {
+          flex: 1;
+          padding: 2px;
+          text-transform: none;
+        }
+
+        button {
+          width: 100%;
+          aspect-ratio: 1.18;
+          height: auto;
+          padding: 0;
+          margin: 0;
+          border-radius: 12px;
+          font-size: 14px;
+          font-weight: 500;
+          border-radius: 12px;
+          border: none;
+
+          &[disabled] {
+            color: #8494B5;
+          }
+
+        }
+
+        button:not([disabled]) {
+          background: #F2F7FF;
+          color: var(--color-font-primary);
+
+          &.Mui-selected {
+            background-color: var(--color-primary);
+            color: #fff;
+          }
+        }
+
+      }
+
+    }
+  }
+}
+

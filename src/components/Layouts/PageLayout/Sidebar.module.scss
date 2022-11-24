@@ -1,0 +1,89 @@
+@import 'src/styles/mixins';
+
+.root {
+  background: var(--body-background);
+  flex: 0 0 128px;
+  position: sticky;
+  top: 0;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+}
+
+.link {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px var(--spacing-3);
+  color:  #8494B5;
+  position: relative;
+
+  &:hover {
+    color: var(--color-primary);
+    
+  }
+
+  svg {
+    margin-bottom: var(--spacing-3);
+    transition: none;
+  }
+
+  &:first-child::before {
+    content: '';
+    opacity: 0;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+    background-color: #fff;
+  }
+
+  &.active {
+    background: #FFFFFF;
+    border-radius: 16px 0px 0px 16px;
+    color: var(--color-primary);
+
+    &:first-child::before {
+      opacity: 1;
+    }
+
+    .beforeRadius, .afterRadius {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      background-color: #fff;
+      width: 100%;
+      height: 100%;
+      
+
+      z-index: -1;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: var(--body-background);
+        border-bottom-right-radius: 16px;
+      }
+    }
+
+    .afterRadius {
+      bottom:auto;
+      top: 100%;
+
+      &:after {
+        border-bottom-right-radius: 0; 
+        border-top-right-radius: 16px; 
+      }
+    }
+
+  }
+
+}

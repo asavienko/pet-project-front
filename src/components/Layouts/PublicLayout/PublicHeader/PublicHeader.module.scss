@@ -1,0 +1,54 @@
+@import 'src/styles/mixins';
+
+.container {
+  height: 110px;
+  margin-top: var(--spacing-4);
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--spacing-7);
+
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @include sm {
+    height: 80px;
+    padding-left: var(--spacing-6);
+    padding-right: var(--spacing-6);
+  }
+}
+
+.rightContainer {
+  display: flex;
+  align-items: center;
+}
+
+.languageSwitcher {
+  @include md {
+    display: none;
+  }
+}
+
+.signInButton {
+  margin-left: var(--spacing-4);
+
+  @include sm {
+    display: none;
+  }
+}
+
+.freeTrial {
+  margin-left: var(--spacing-5);
+
+  @include sm {
+    display: none;
+  }
+}
+
+.logo {
+  @include sm {
+    width: 123px;
+  }
+}

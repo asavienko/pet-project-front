@@ -1,0 +1,12 @@
+.root {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--bottomBarHeightLg);
+  z-index: var(--zIndexBottomBar);
+}
+
+.bottomBar {
+  height: var(--bottomBarHeightLg);
+}

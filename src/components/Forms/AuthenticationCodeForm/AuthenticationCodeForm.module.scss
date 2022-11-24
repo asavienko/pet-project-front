@@ -1,0 +1,45 @@
+.root {
+  max-width: 370px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.codeInput {
+  display: flex !important;
+  justify-content: space-between;
+  width: 100%;
+
+  input {
+    max-width: calc((100% - 5 * 4px) / 6);
+  }
+
+  &.hasError {
+    margin-bottom: var(--spacing-3);
+    
+    input {
+      background: #FBF4F4 !important;
+    }
+  }
+
+
+
+
+  input[type='number']::-webkit-inner-spin-button, 
+  input[type='number']::-webkit-outer-spin-button { 
+      opacity: 1;
+      -webkit-appearance: none;
+      margin: 0;
+  }
+}
+
+
+.error {
+  color: #FE3F6D;
+  margin-bottom: var(--spacing-6);
+}
+
+.noEmailText {
+  margin-top: var(--spacing-7);
+  margin-bottom: var(--spacing-3);
+  font-size: 18px;
+}

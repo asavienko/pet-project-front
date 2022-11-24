@@ -1,0 +1,15 @@
+.fieldContainer {
+  margin-bottom: var(--spacing-3);
+  display: flex;
+
+  button {
+    height: 48px;
+    align-self: flex-end;
+    background-color: transparent;
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import 'src/styles/mixins';
+
+.root {
+  display: flex;
+  justify-content: flex-end;
+
+  @include md {
+    align-self: flex-start;
+  }
+}
+
+.mobileLink {
+  white-space: normal;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  svg {
+    margin-right: var(--spacing-3);
+    flex: 0 0 16px;
+    align-self: flex-start;
+    transform: translateY(4px);
+  }
+
+  &:hover {
+    background: #F2FAFF;
+  }
+
+  &:not(.customColor):hover {
+    color: var(--color-primary);
+  }
+}

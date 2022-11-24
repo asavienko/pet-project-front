@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button {
+  margin-right: auto;
+  color: var(--color-font-primary);
+
+  padding: 0 var(--spacing-5);
+  margin-left: calc(var(--spacing-5) * -1);
+}

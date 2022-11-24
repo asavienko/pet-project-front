@@ -1,0 +1,51 @@
+@import 'src/styles/mixins';
+
+.root {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+  text-align: center;
+  padding-top: 40px;
+  background-color: var(--body-background);
+
+  @include md {
+    padding-top: 40px;
+    padding-bottom: 100px;
+  }
+}
+
+.text404 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 232px;
+  line-height: 294px;
+  text-shadow: 9px -7px #E1E6F0;
+  color: #FFFFFF;
+  position: relative;
+
+  @include md {
+    font-size: 160px;
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  @include sm {
+    font-size: 100px;
+  }
+
+  img {
+    position: absolute;
+    top: -63px;
+    left: -155px;
+  }
+}
+
+.logo {
+  position: absolute;
+  top: 39px;
+  left: 32px;
+}

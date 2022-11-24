@@ -1,0 +1,101 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.root {
+  display: block;
+
+  // @include headerSwitchMediaQueryUp {
+  //   display: none;
+  // }
+
+  @include smUp {
+    display: none;
+  }
+
+}
+
+.menuContainer {
+  display: none;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: var(--zIndexHeaderNavigation);
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+  padding-bottom: 120px;
+  padding-top: 0;
+
+  @include sm {
+    top: 80px;
+    padding-bottom: 16px;
+  }
+
+
+  &.open {
+    display: flex;
+  }
+
+  .link {
+    color: var(--color-font-primary);
+    padding-top: 48px;
+    padding-bottom: 48px;
+    font-size: 28px;
+
+    @include sm {
+      font-size: 20px;
+      padding-top: 36px;
+      padding-bottom: 36px;
+    }
+  }
+}
+
+.button {
+  color: var(--color-font-primary) !important;
+
+  svg {
+    color: inherit;
+  }
+}
+
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+}
+
+.languageSwitcher {
+  color: var(--color-font-primary);
+  width: 100px;
+  margin: var(--spacing-5) auto 0;
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  @include mdUp {
+    display: none;
+  }
+}
+
+.buttonsContainer {
+  margin-top: auto;
+  padding-left: var(--spacing-5);
+  padding-right: var(--spacing-5);
+  display: flex;
+
+  @include smUp {
+    display: none;
+  }
+
+  .bottomButton {
+    flex: 1;
+    padding: 0;
+    text-align: center;
+
+    &:last-child {
+      margin-left: var(--spacing-5);
+    }
+  }
+}

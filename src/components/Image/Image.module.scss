@@ -1,0 +1,30 @@
+@import 'src/styles/mixins';
+
+.root {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+
+  img {
+    max-width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.2s ease;
+    
+  }
+
+  .placeholderIcon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.simpleImage {
+  max-width: 100%;
+}

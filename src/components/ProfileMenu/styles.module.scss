@@ -1,0 +1,17 @@
+.menuItem {
+  color: var(--color-font-primary);
+
+  svg *, svg {
+    transition: none;
+  }
+
+  svg {
+    margin-right: var(--spacing-3);
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.menuItem:hover {
+  color: var(--color-primary-hover);
+}

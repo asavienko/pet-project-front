@@ -1,0 +1,11 @@
+@import 'src/styles/mixins';
+
+.root {
+  @include headerSwitchMediaQuery {
+    display: none;
+  }
+}
+
+.button {
+  font-weight: 400;
+}

@@ -1,0 +1,159 @@
+@import './mixins';
+
+@import './components/autocomplete.scss';
+@import './components/intro.js.scss';;
+
+:root {
+  --primary-color: #0075FF;
+
+
+  --dark-color: #000;
+  --light-color: #bcbec5;
+  --gray: #656c7b;
+  --white: #ffffff;
+
+  --border-color: #E1E6F0;
+
+
+  --subtext700: #BAC6DE;
+  --subtext900: #8494B5;
+
+
+  --body-background: #F2F4F8;
+  --background-primary: #F2F7FF;
+  --bacground-error: #FBF4F4;
+
+  --mesage-info: #5A83EF;
+  --mesage-error: #FE3F6D;
+  --mesage-success: #5CBF83;
+
+  --border-grey: #E1E6F0;
+
+  --color-font-primary: #2E384D;
+  --color-primary: #0075FF;
+  --color-primary-hover: #00A3FF;
+  --color-primary-border: #C8D9FA;
+  --color-font-secondary: #656C7B;
+  --color-font-danger: #FE3F6D;
+
+  --color-danger: #FE3F6D;
+
+
+
+
+  --spacing-1: 2px;
+  --spacing-2: 4px;
+  --spacing-3: 8px;
+  --spacing-4: 12px;
+  --spacing-5: 16px;
+  --spacing-6: 24px;
+  --spacing-7: 32px;
+  
+
+  --fontFamily: EuclidCircularA;
+
+  --transition: all 0.3s ease;
+  --transition-config: 0.3s ease;
+
+  --zIndexChatlio: 30;
+  --zIndexHeaderNavigation: 112;
+  --zIndexBottomBar: 110;
+
+
+  --header-height: 110px;
+  --footer-height: 95px;
+  --chatlio-button-space: 76px;
+  --bottomBarHeightLg: 66px;
+
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: EuclidCircularA, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.3;
+  color: var(--color-font-primary);
+  overflow-x: hidden;
+  
+
+  @include bottomBarActiveQuery {
+    &.so-auth-route {
+      padding-bottom: var(--bottomBarHeightLg);
+    }
+  }
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &.disable-click {
+    pointer-events: none;;
+  }
+}
+
+// this style breaks mui calendar switching between months -> animation doesn't look good in this case
+// body * {
+//   transition: var(--transition);
+// }
+
+* {
+  box-sizing: border-box;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-primary-hover);
+  }
+}
+
+
+.so-move-off-screen {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden;
+  border-color: transparent;
+  outline: none;
+  padding: 0;
+}
+
+#chatlio-widget-container {
+  bottom: 5px;
+}
+
+
+.SnackbarContainer-root .SnackbarContent-root {
+  flex-wrap: nowrap;
+}
+
+.chatlio-widget {
+  z-index: var(--zIndexChatlio);
+}
+
+a#CybotCookiebotDialogPoweredbyCybot,div#CybotCookiebotDialogPoweredByText {
+  // disable cookie bot branding
+  display: none;
+}
+
+
+.CUSTOM_DATE_PICKER .PrivatePickersToolbar-root {
+  display: none;
+}

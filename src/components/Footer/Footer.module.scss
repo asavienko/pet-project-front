@@ -1,0 +1,124 @@
+@import 'src/styles/mixins';
+
+.root {
+  padding: 32px var(--spacing-7) 24px;
+  min-height: var(--footer-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: auto;
+  position: relative;
+  width: 100%;
+  max-width: 1204px;
+  margin-left: auto;
+  margin-right: auto;
+
+  &.noTopMargin {
+    margin-top: 0;
+  }
+
+  &.fullWidth {
+    max-width: none;
+  }
+
+  @media screen and (max-width: 1140px) {
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  @include md {
+    padding-left: var(--spacing-6);
+    padding-right: var(--spacing-6);
+  }
+
+  @include sm {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: var(--spacing-5);
+    padding-right: var(--spacing-5);
+  }
+}
+
+.nav {
+
+  @include md {
+    margin-right: auto;
+    margin-left: 16px;
+  }
+
+  @include sm {
+    margin-left: 0;
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -3px;
+
+    @media screen and (max-width: 1040px) {
+      column-count: 2;
+      display: block;
+    }
+
+    @include md {
+      column-count: 1;
+    }
+
+    @include sm {
+      column-gap: 0;
+      column-count: 1;
+      margin-bottom: var(--spacing-6);
+    }
+  }
+
+  li {
+    margin: 3px 20px;
+
+    @include sm {
+      margin: 0;
+    }
+  }
+
+  a {
+    color: var(--color-font-primary);
+  }
+}
+
+.socialButtons {
+  display: flex;
+}
+
+.socialContainer {
+  display: flex;
+  align-items: center;
+  margin-top: -12px;
+
+  @include sm {
+    flex-direction: row-reverse;
+    margin-bottom: auto;
+    margin-top: 0;
+  }
+}
+
+.copyrightContainer {
+  white-space: nowrap;
+
+  @include sm {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    order: 4;
+    width: 100%;
+  }
+}
+
+.noChatlioMargin {
+  margin-top: 0;
+}

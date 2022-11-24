@@ -1,0 +1,28 @@
+overwrite: true
+schema:
+- ./schema.graphql
+documents: './src/queries/**/*.js'
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+    - "typescript"
+    - "typescript-operations"
+    - "typescript-react-apollo"
+
+    config:
+      typesPrefix: T
+      skipTypename: true
+      enumPrefix: false
+      avoidOptionals: false
+      maybeValue: T | null
+      inputMaybeValue: T | null
+      omitOperationSuffix: false
+      namingConvention:
+        typeNames: change-case-all#pascalCase
+        enumValues: change-case-all#upperCase
+
+      scalars:
+        DateTime: string
+        Timestamp: number
+
+ 

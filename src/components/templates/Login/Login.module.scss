@@ -1,0 +1,45 @@
+@import 'src/styles/mixins';
+
+.root {
+  margin: auto 0;
+}
+
+.formContainer {
+  max-width: 370px;
+  margin: var(--spacing-7) auto;
+
+  @include sm {
+    margin: var(--spacing-6) auto;
+  }
+}
+
+.orLine {
+  text-align: center;
+  position: relative;
+  margin-bottom: var(--spacing-7);
+
+  @include sm {
+    margin-bottom: var(--spacing-6);
+  }
+
+  span {
+    background-color: #fff;
+    display: inline-block;
+    padding: 0 8px;
+    z-index: 2;
+    position: relative;
+    font-size: 18px;
+    line-height: 39px;
+  }
+
+  &:before {
+    content: '';
+    
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #C8D9FA;
+  }
+}

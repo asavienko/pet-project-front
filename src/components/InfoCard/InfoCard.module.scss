@@ -1,0 +1,24 @@
+.root {
+  background: #F2F7FF;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-7) var(--spacing-4);
+  position: relative
+}
+
+.content {
+  margin-bottom: var(--spacing-5);
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.iconContainer {
+  display: flex;
+  margin-bottom: var(--spacing-3);
+}

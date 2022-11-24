@@ -1,0 +1,38 @@
+@import 'src/styles/mixins';
+
+.arrow {
+  position: absolute;
+  cursor: pointer;
+  left:0;
+  top: 0;
+
+  &.arrowExpanded {
+    transform: rotate(90deg);
+  }
+}
+
+.expandableTitle {
+  cursor: pointer;
+}
+
+.endIcon {
+  position: absolute;
+  right: 0;
+  top: 30px;
+
+  @include xs {
+    top: 16px;
+  }
+}
+
+.warning {
+  color: var(--mesage-error);
+}
+
+.success {
+  color: var(--mesage-success);
+}
+
+.childrenContainer {
+  position: relative;
+}

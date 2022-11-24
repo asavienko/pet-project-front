@@ -1,0 +1,17 @@
+@import 'src/styles/mixins';
+
+.root {
+  max-width: 1204px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-7);
+
+  @include md {
+    padding-left: var(--spacing-6);
+    padding-right: var(--spacing-6);
+  }
+
+  @include sm {
+    padding-left: var(--spacing-5);
+    padding-right: var(--spacing-5);
+  }
+}

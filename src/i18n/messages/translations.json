@@ -1,0 +1,662 @@
+{
+  "++FVOV": {
+    "description": "<no description>",
+    "message": "5 minutes"
+  },
+  "+7PjfV": {
+    "description": "<no description>",
+    "message": "1 day"
+  },
+  "/z2NEW": {
+    "description": "<no description>",
+    "message": "Please emter postal code"
+  },
+  "056aa1": {
+    "description": "<no description>",
+    "message": "SoPlan LinkedIn profile"
+  },
+  "0ItI1G": {
+    "description": "<no description>",
+    "message": "Company information"
+  },
+  "0ci3jg": {
+    "description": "<no description>",
+    "message": "Comma separated emails"
+  },
+  "0oL1zz": {
+    "description": "<no description>",
+    "message": "Copied!"
+  },
+  "0vSv1a": {
+    "description": "<no description>",
+    "message": "Please make sure that you've typed in the URL correctly"
+  },
+  "0wpzdD": {
+    "description": "<no description>",
+    "message": "Skype"
+  },
+  "1D1BPq": {
+    "description": "<no description>",
+    "message": "Are you sure you want to close modal?"
+  },
+  "1J25rY": {
+    "description": "<no description>",
+    "message": "4 hour"
+  },
+  "1ZgrhW": {
+    "description": "<no description>",
+    "message": "Role"
+  },
+  "2/2yg+": {
+    "description": "<no description>",
+    "message": "Add"
+  },
+  "23qDR0": {
+    "description": "<no description>",
+    "message": "SoPlan Twitter profile"
+  },
+  "2Rl5ZD": {
+    "description": "<no description>",
+    "message": "Role tooltip"
+  },
+  "3tSD3u": {
+    "description": "<no description>",
+    "message": "Continue with:"
+  },
+  "47FYwb": {
+    "description": "<no description>",
+    "message": "Cancel"
+  },
+  "50qQ2n": {
+    "description": "<no description>",
+    "message": "Too short"
+  },
+  "5ezAMH": {
+    "description": "<no description>",
+    "message": "Make as User"
+  },
+  "68LTym": {
+    "description": "<no description>",
+    "message": "1 hour"
+  },
+  "6b2CRH": {
+    "description": "<no description>",
+    "message": "User menu"
+  },
+  "9+Ddtu": {
+    "description": "<no description>",
+    "message": "Next"
+  },
+  "9YazHG": {
+    "description": "<no description>",
+    "message": "Company"
+  },
+  "9cqGkU": {
+    "description": "<no description>",
+    "message": "A verification code was sent to your e-mail. Enter this code to continue."
+  },
+  "AEG6lu": {
+    "description": "<no description>",
+    "message": "Please enter family name"
+  },
+  "BAoId6": {
+    "description": "<no description>",
+    "message": "Please enter your phone number"
+  },
+  "BQAuvR": {
+    "description": "<no description>",
+    "message": "Select country from the list"
+  },
+  "C81/uG": {
+    "description": "<no description>",
+    "message": "Logout"
+  },
+  "CNaG5S": {
+    "description": "<no description>",
+    "message": "10 minutes"
+  },
+  "CZSWMu": {
+    "description": "<no description>",
+    "message": "Upgrade to Professional"
+  },
+  "D3idYv": {
+    "description": "<no description>",
+    "message": "Settings"
+  },
+  "DSY9/N": {
+    "description": "<no description>",
+    "message": "Check your Junk folder or <link>Resend e-mail</link>"
+  },
+  "F42bEw": {
+    "description": "<no description>",
+    "message": "Schedules"
+  },
+  "FpxElY": {
+    "description": "<no description>",
+    "message": "Verification"
+  },
+  "GRpnsv": {
+    "description": "<no description>",
+    "message": "Guests emails"
+  },
+  "HAlOn1": {
+    "description": "<no description>",
+    "message": "Name"
+  },
+  "JEa3zz": {
+    "description": "<no description>",
+    "message": "Upload your avatar"
+  },
+  "JV6PKl": {
+    "description": "<no description>",
+    "message": "You need to upgrade your profile"
+  },
+  "K3r6DQ": {
+    "description": "<no description>",
+    "message": "Delete"
+  },
+  "KV7xeN": {
+    "description": "<no description>",
+    "message": "Start free trial"
+  },
+  "L/CE8y": {
+    "description": "<no description>",
+    "message": "Create user"
+  },
+  "LTNKL8": {
+    "description": "<no description>",
+    "message": "1 week"
+  },
+  "N2KNQS": {
+    "description": "<no description>",
+    "message": "Please enter name"
+  },
+  "N80Jma": {
+    "description": "<no description>",
+    "message": "No users"
+  },
+  "NeDY3Y": {
+    "description": "<no description>",
+    "message": "Unexpected error happened during file upload. Please try again"
+  },
+  "Ntjkqd": {
+    "description": "<no description>",
+    "message": "or"
+  },
+  "O0e15L": {
+    "description": "<no description>",
+    "message": "Error happened while creating an integration. Please try again"
+  },
+  "PdrAeI": {
+    "description": "<no description>",
+    "message": "Create additional users for consolidated billing. Each account will automatically be subscribed to a paid plan"
+  },
+  "Py189G": {
+    "description": "<no description>",
+    "message": "Security"
+  },
+  "Q5J5RV": {
+    "description": "<no description>",
+    "message": "Unable to start integration, integration tab is blocked"
+  },
+  "Q6wcZ5": {
+    "description": "<no description>",
+    "message": "First Name"
+  },
+  "Q896H+": {
+    "description": "<no description>",
+    "message": "A new code was sent to your email!"
+  },
+  "QDer1/": {
+    "description": "<no description>",
+    "message": "2 hour"
+  },
+  "QrihTZ": {
+    "description": "<no description>",
+    "message": "Friday"
+  },
+  "RSirso": {
+    "description": "<no description>",
+    "message": "Tell more about yourself"
+  },
+  "RYiGdc": {
+    "description": "<no description>",
+    "message": "Contact Information"
+  },
+  "SiO/3G": {
+    "description": "<no description>",
+    "message": "4 hours"
+  },
+  "SjGpn5": {
+    "description": "<no description>",
+    "message": "Problems with internet connection"
+  },
+  "SjLuKd": {
+    "description": "<no description>",
+    "message": "Uh oh. That page doesn’t exist."
+  },
+  "Sofbdh": {
+    "description": "<no description>",
+    "message": "Didn’t receive an e-mail?"
+  },
+  "SyTPPu": {
+    "description": "<no description>",
+    "message": "Fill in your Basic and contact information to complete your profile"
+  },
+  "T/aPxt": {
+    "description": "<no description>",
+    "message": "Error happened while saving your data, please try again"
+  },
+  "T26lW2": {
+    "description": "<no description>",
+    "message": "Access denied"
+  },
+  "TAezk2": {
+    "description": "<no description>",
+    "message": "logout.error"
+  },
+  "TE4fIS": {
+    "description": "<no description>",
+    "message": "City"
+  },
+  "Tn82+F": {
+    "description": "<no description>",
+    "message": "Trial ends in {daysCount} day(s). Please <link>add payment method</link>"
+  },
+  "Ub+AGc": {
+    "description": "<no description>",
+    "message": "Sign In"
+  },
+  "V8yJy5": {
+    "description": "<no description>",
+    "message": "Unset"
+  },
+  "VnXp8Z": {
+    "description": "<no description>",
+    "message": "Avatar"
+  },
+  "W4YHJM": {
+    "description": "<no description>",
+    "message": "15 minutes"
+  },
+  "WMNHPh": {
+    "description": "<no description>",
+    "message": "Saturday"
+  },
+  "XosqAG": {
+    "description": "<no description>",
+    "message": "2 hours"
+  },
+  "Y9S8d5": {
+    "description": "<no description>",
+    "message": "Phone Call"
+  },
+  "YAgYL6": {
+    "description": "<no description>",
+    "message": "Tuesday"
+  },
+  "YClwP1": {
+    "description": "<no description>",
+    "message": "Too long"
+  },
+  "ZCgb2T": {
+    "description": "<no description>",
+    "message": "MS Teams"
+  },
+  "ZXp0z1": {
+    "description": "<no description>",
+    "message": "Features"
+  },
+  "Zg0FqD": {
+    "description": "<no description>",
+    "message": "User has been deleted"
+  },
+  "ZjDH42": {
+    "description": "<no description>",
+    "message": "About Us"
+  },
+  "ZkhArX": {
+    "description": "<no description>",
+    "message": "Let's go!"
+  },
+  "ZvKSfJ": {
+    "description": "<no description>",
+    "message": "Events"
+  },
+  "a5msuh": {
+    "description": "<no description>",
+    "message": "Yes"
+  },
+  "aheQdn": {
+    "description": "<no description>",
+    "message": "Last Name"
+  },
+  "avx3EU": {
+    "description": "<no description>",
+    "message": "Something went wrong, please refresh the page"
+  },
+  "azMsfM": {
+    "description": "<no description>",
+    "message": "Monday"
+  },
+  "b1zuN9": {
+    "description": "<no description>",
+    "message": "Price"
+  },
+  "b7u3SH": {
+    "description": "<no description>",
+    "message": "By continuining you agree with the <termsLink>Terms of service</termsLink> and <privacyLink>Privacy policy</privacyLink>"
+  },
+  "banner.subscription.cancellationInProgress": {
+    "description": "<no description>",
+    "message": "Your subscription will be cancelled on {date}. <br></br> Your customers will not be able to schedule appointments after this date. Changed your mind? <link>Reactivate</link> your subscription."
+  },
+  "banner.subscription.paymentMethodMissingForActiveSubscription": {
+    "description": "<no description>",
+    "message": "A payment method is missing. Your subscription will not be automatically renewed unless you add a payment method. <link>Add payment method</link>"
+  },
+  "cUgCpw": {
+    "description": "<no description>",
+    "message": "Uploading avatar failed, please try again"
+  },
+  "cXBJ7U": {
+    "description": "<no description>",
+    "message": "Privacy"
+  },
+  "cXUE4o": {
+    "description": "<no description>",
+    "message": "Basic information"
+  },
+  "common.admin": {
+    "description": "<no description>",
+    "message": "Admin"
+  },
+  "common.cancel": {
+    "description": "<no description>",
+    "message": "Cancel"
+  },
+  "common.error": {
+    "description": "<no description>",
+    "message": "Error"
+  },
+  "common.google": {
+    "description": "<no description>",
+    "message": "Google"
+  },
+  "common.outlook": {
+    "description": "<no description>",
+    "message": "Outlook"
+  },
+  "common.signIn": {
+    "description": "<no description>",
+    "message": "Sign In"
+  },
+  "common.user": {
+    "description": "<no description>",
+    "message": "User"
+  },
+  "common.zoom": {
+    "description": "<no description>",
+    "message": "Zoom"
+  },
+  "crZ+Bi": {
+    "description": "<no description>",
+    "message": "Google Meet"
+  },
+  "cyR7Kh": {
+    "description": "<no description>",
+    "message": "Back"
+  },
+  "dFK1QE": {
+    "description": "<no description>",
+    "message": "Make as Admin"
+  },
+  "dpGRoX": {
+    "description": "<no description>",
+    "message": "Please enter email"
+  },
+  "e6Ph5+": {
+    "description": "<no description>",
+    "message": "Address"
+  },
+  "es7ci2": {
+    "description": "<no description>",
+    "message": "30 minutes"
+  },
+  "footer.link.manageCookies": {
+    "description": "<no description>",
+    "message": "Manage Cookies"
+  },
+  "gg8Fab": {
+    "description": "<no description>",
+    "message": "Please enter address"
+  },
+  "gujqCk": {
+    "description": "<no description>",
+    "message": "8 hours"
+  },
+  "gvXtEw": {
+    "description": "<no description>",
+    "message": "Company logo"
+  },
+  "hQEWj2": {
+    "description": "<no description>",
+    "message": "The e-mail address you are trying to add already exists within another organization. That account should be deleted first before it can be added to this organization."
+  },
+  "hjXRmD": {
+    "description": "<no description>",
+    "message": "Please select country"
+  },
+  "jdJhOL": {
+    "description": "<no description>",
+    "message": "Phone number"
+  },
+  "jvo0vs": {
+    "description": "<no description>",
+    "message": "Save"
+  },
+  "jwimQJ": {
+    "description": "<no description>",
+    "message": "Ok"
+  },
+  "kIW/Ua": {
+    "description": "<no description>",
+    "message": "E-mail address"
+  },
+  "kZ7kzU": {
+    "description": "<no description>",
+    "message": "Email is invalid"
+  },
+  "kmrE95": {
+    "description": "<no description>",
+    "message": "2 weeks"
+  },
+  "ku+mDU": {
+    "description": "<no description>",
+    "message": "State"
+  },
+  "lwxbiR": {
+    "description": "<no description>",
+    "message": "This page is only available for users"
+  },
+  "lxblgl": {
+    "description": "<no description>",
+    "message": "Wednesday"
+  },
+  "lzgH40": {
+    "description": "<no description>",
+    "message": "Google"
+  },
+  "m8yipA": {
+    "description": "<no description>",
+    "message": "Error happened while deleting the user. Please try again"
+  },
+  "mH35gI": {
+    "description": "<no description>",
+    "message": "45 minutes"
+  },
+  "mJR06P": {
+    "description": "<no description>",
+    "message": "Sunday"
+  },
+  "moOg2N": {
+    "description": "<no description>",
+    "message": "Outlook"
+  },
+  "mrIsA3": {
+    "description": "<no description>",
+    "message": "update plan"
+  },
+  "o6ioxH": {
+    "description": "<no description>",
+    "message": "Please enter company name"
+  },
+  "oUWADl": {
+    "description": "<no description>",
+    "message": "No"
+  },
+  "p1dNds": {
+    "description": "<no description>",
+    "message": "1 month"
+  },
+  "pmT4/5": {
+    "description": "<no description>",
+    "message": "Unexpected error happend while updating an alias"
+  },
+  "qAhUUO": {
+    "description": "<no description>",
+    "message": "Thursday"
+  },
+  "qXuWf7": {
+    "description": "<no description>",
+    "message": "Uh-Oh... An unexpected error occurred, don't worry, we are on it. In the mean time, please try again..."
+  },
+  "rCaXPg": {
+    "description": "<no description>",
+    "message": "on the Professional Plan"
+  },
+  "rIAJlE": {
+    "description": "<no description>",
+    "message": "Added"
+  },
+  "rXAq/X": {
+    "description": "<no description>",
+    "message": "Please select city"
+  },
+  "raD8Rp": {
+    "description": "<no description>",
+    "message": "User has been added"
+  },
+  "rbrahO": {
+    "description": "<no description>",
+    "message": "Close"
+  },
+  "reactError.generalError.title": {
+    "description": "<no description>",
+    "message": "Uh-Oh... An unexpected error occurred, don't worry, we are on it. In the mean time, please try again..."
+  },
+  "s42plv": {
+    "description": "<no description>",
+    "message": "ZIP"
+  },
+  "subscribeDialog.title": {
+    "description": "<no description>",
+    "message": "Upgrade Plan"
+  },
+  "subscribeDialog.upgradePlan": {
+    "description": "<no description>",
+    "message": "Upgrade plan"
+  },
+  "subscriptionCanceled.schedulesDisabledWarning.admin": {
+    "description": "<no description>",
+    "message": "Your subscription is canceled. Your customers will not be able to schedule appointments until you have an <link>active subscription</link>."
+  },
+  "subscriptionCanceled.schedulesDisabledWarning.user": {
+    "description": "<no description>",
+    "message": "subscriptionCanceled.schedulesDisabledWarning.user"
+  },
+  "sy+pv5": {
+    "description": "<no description>",
+    "message": "Email"
+  },
+  "tkwCac": {
+    "description": "<no description>",
+    "message": "E-mail"
+  },
+  "trRp8M": {
+    "description": "<no description>",
+    "message": "Error happened while loading users. Please try again"
+  },
+  "trianEndsBanner.title.onlyDays": {
+    "description": "<no description>",
+    "message": "Trial ends in {daysCount} day(s)"
+  },
+  "ty14Iy": {
+    "description": "<no description>",
+    "message": "The e-mail address you are trying to add already exists within this organization."
+  },
+  "uOR6B5": {
+    "description": "<no description>",
+    "message": "Continue with e-mail"
+  },
+  "v1bRfR": {
+    "description": "<no description>",
+    "message": "1 hour 30 minutes"
+  },
+  "vONi+O": {
+    "description": "<no description>",
+    "message": "Country"
+  },
+  "va7zJk": {
+    "description": "<no description>",
+    "message": "Please enter the correct code"
+  },
+  "vgeAHP": {
+    "description": "<no description>",
+    "message": "Profile successfully updated"
+  },
+  "wR9OEJ": {
+    "description": "<no description>",
+    "message": "Error happened while changing user role. Please try again"
+  },
+  "wRZ3rX": {
+    "description": "<no description>",
+    "message": "Phone is invalid"
+  },
+  "wgLyhA": {
+    "description": "<no description>",
+    "message": "Please select state"
+  },
+  "x3woOG": {
+    "description": "<no description>",
+    "message": "Fill all empty guest emails fields before adding new one"
+  },
+  "xkr+zo": {
+    "description": "<no description>",
+    "message": "Terms"
+  },
+  "y0cLw2": {
+    "description": "<no description>",
+    "message": "File is too big. Max size is 15Mb"
+  },
+  "yAIPnb": {
+    "description": "<no description>",
+    "message": "Please check files format. Supported file extensions: {fileExtensionList}. Max file size is {maxSize}"
+  },
+  "yMbKju": {
+    "description": "<no description>",
+    "message": "Zoom"
+  },
+  "z+jvO3": {
+    "description": "<no description>",
+    "message": "30 min"
+  },
+  "zFk9rm": {
+    "description": "<no description>",
+    "message": "3 days"
+  },
+  "zoUiSJ": {
+    "description": "<no description>",
+    "message": "User role has been updated"
+  }
+}

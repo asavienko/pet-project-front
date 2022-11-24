@@ -1,0 +1,31 @@
+.select {
+  :global .MuiAutocomplete-popper * {
+    transition: none;
+  }
+
+  :global .MuiOutlinedInput-root {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  :global .MuiOutlinedInput-input {
+    height: auto;
+  }
+
+  button {
+    align-self: flex-end;
+    background-color: transparent;
+    box-shadow: none;
+
+
+    :global .MuiTouchRipple-root {
+      display: none;
+    }
+
+    &:hover, &:active {
+      box-shadow: none;
+      background-color: transparent;
+    }
+  }
+}
+

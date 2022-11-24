@@ -1,0 +1,102 @@
+body {
+  .introjs-tooltip-title {
+    white-space: nowrap;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    // padding-right: 55px;
+  }
+  
+  .introjs-tooltipReferenceLayer * {
+    font-family: inherit !important;
+  }
+  
+  .introjs-tooltiptext {
+    font-size: 0.875rem !important;
+  }
+  
+  .introjs-tooltip {
+    border-radius: 12px;
+    max-width: none;
+  }
+
+  .introjs-tooltip-header {
+    padding-right: 45px;
+  }
+
+  .introjs-skipbutton {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+  }
+
+
+  .introjs-bullets ul li a {
+    background: #b9c6de;
+
+    &:hover, &.active {
+      background: var(--color-primary);
+    }
+  }
+
+  .introjs-tooltipbuttons {
+    display: flex;
+    justify-content: space-between;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .introjs-donebutton {
+    &:first-child {
+      margin: 0 auto;
+    }
+  }
+
+
+  .introjs-button {
+    height: 48px;
+    padding: 0 24px;
+    line-height: 46px;
+    border-radius: 12px;
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    outline: none;
+    text-shadow: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 50px;
+    text-align: center;
+
+    &:hover {
+      background-color: var(--color-primary-hover); 
+      color: #fff;
+    }
+
+    &:focus {
+      background-color: var(--color-primary);
+      color: #fff;
+      outline: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    
+  }
+
+  .introjs-prevbutton {
+    background: #F2F7FF;
+    color: var(--color-primary);
+
+    &:hover, &:focus {
+      background: #F2FAFF;
+      color: #00A3FF;
+    }
+
+    &.introjs-disabled {
+      background: #F2F4F8; 
+      color: #BAC6DE;
+    }
+  }
+}
