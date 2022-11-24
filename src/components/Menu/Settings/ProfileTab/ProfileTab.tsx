@@ -42,11 +42,17 @@ const ProfileTab = () => {
   useEffect(() => {
     if (!data) return;
     const formData = {
+      // @ts-ignore
       firstName: data.user.firstName,
+      // @ts-ignore
       lastName: data.user.lastName,
+      // @ts-ignore
       country: data.user.country,
+      // @ts-ignore
       state: data.user.state,
+      // @ts-ignore
       city: data.user.city,
+      // @ts-ignore
       phone: data.user.phone,
     };
 

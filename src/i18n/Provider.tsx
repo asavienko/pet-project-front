@@ -34,7 +34,8 @@ const Provider: React.FC<TProps> = ({ children, locale = LOCALE.ENGLISH }) => {
   return (
     <IntlProvider
       locale={locale}
-      messages={messages[locale] as any}
+      // @ts-ignore
+      messages={messages[locale]}
       onError={handleError}
     >
       {children}
