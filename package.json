@@ -6,7 +6,6 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "extract-translations": "./scripts/extract-translations.sh",
     "normalize-translations": "node ./scripts/normalizeTransifexTranslations.js",
     "generate": "graphql-codegen --config codegen.yml",
