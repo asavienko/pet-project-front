@@ -12,7 +12,11 @@ import MarkdownController from '../../Controllers/MarkdownController';
 import { T } from '../../../i18n/translate';
 
 // @ts-ignore
-import { usePublishPostsMutation } from '../../../generated/graphql';
+import {
+  usePostsLazyQuery,
+  usePostsQuery,
+  usePublishPostsMutation,
+} from '../../../generated/graphql';
 import Button from '../../Buttons/Button';
 import Loader from '../../Loader';
 import Divider from '../../Divider';
@@ -36,21 +40,26 @@ const Home = () => {
   });
 
   const [useMutation, { data, loading, error }] = usePublishPostsMutation();
+  const {
+    data: { posts } = {},
+    loading: loadingPosts,
+    refetch,
+  } = usePostsQuery();
 
   const handleFormSubmit = async (result: TFormValues) => {
     await useMutation({
       variables: { input: result.post },
       onCompleted: () => {
         reset();
+        refetch();
       },
       // TODO Add Error handling for gql query
       onError: () => console.error('Tri again'),
     });
   };
-
   return (
     <Grid item xs={12} md={10} lg={8} mt={6}>
-      <Loader loading={loading} />
+      <Loader loading={loading || loadingPosts} />
 
       <Box
         display="flex"
@@ -80,14 +89,18 @@ const Home = () => {
         </form>
 
         <Divider />
-        <Paper
-          variant="outlined"
-          sx={{
-            padding: 2,
-          }}
-        >
-          <Markdown navigation>"ASDASDAS"</Markdown>
-        </Paper>
+
+        {posts?.map(({ post }) => (
+          <Paper
+            variant="outlined"
+            sx={{
+              mt: 4,
+              padding: 2,
+            }}
+          >
+            <Markdown navigation>{post}</Markdown>
+          </Paper>
+        ))}
       </Box>
     </Grid>
   );
