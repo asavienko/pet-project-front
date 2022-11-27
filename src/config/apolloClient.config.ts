@@ -1,18 +1,12 @@
 import { ApolloClient, ApolloLink, InMemoryCache } from '@apollo/client';
-import { createHttpLink } from 'apollo-link-http';
+import { HttpLink } from 'apollo-link-http';
 
 import { IS_DEV } from '../constants/app';
+import { getToken } from '../utils/token';
 
-const publicLink = ApolloLink.from([
-  // @ts-ignore
-  createHttpLink({
-    // @ts-ignore
-    uri: import.meta.env.VITE_GRAPHQL_ENDPOINT,
-  }),
-]);
-
-export const cache = new InMemoryCache({
-  addTypename: false,
+const cache = new InMemoryCache();
+const publicLink = new HttpLink({
+  uri: import.meta.env.VITE_GRAPHQL_ENDPOINT,
 });
 
 const defaultOptions = {
@@ -26,13 +20,24 @@ const defaultOptions = {
   },
 };
 
+const authLink = new ApolloLink((operation, forward) => {
+  const token = getToken();
+
+  operation.setContext({
+    headers: {
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  });
+
+  return forward(operation);
+});
+
 export const client = () =>
   new ApolloClient({
     connectToDevTools: IS_DEV,
-    link: ApolloLink.split(
-      (operation) => operation.getContext().clientType === 'public',
-      publicLink
-    ),
+    // TODO  add required event callback: onError
+    // @ts-ignore
+    link: authLink.concat(publicLink),
     cache,
     // @ts-ignore
     defaultOptions,

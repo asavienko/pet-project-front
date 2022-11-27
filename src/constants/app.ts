@@ -1,4 +1,3 @@
-export const OAUTH_EVENT = 'OAUTH_EVENT';
 export const DEFAULT_TIME_ZONE = 'Europe/London';
 
 // @ts-ignore
@@ -10,3 +9,7 @@ export const APP_PROD = APP_ENV === 'prod';
 export const APP_STAGE = APP_ENV === 'stage';
 export const INSTAGRAM_LINK = '';
 export const LINKEDIN_LINK = '';
+
+export const GITHUB_AUTH_LOGIN_URL = 'https://github.com/login/oauth/authorize';
+
+export const TOKEN_KEY = 'TOKEN';

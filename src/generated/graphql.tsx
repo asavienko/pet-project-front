@@ -18,9 +18,15 @@ export type Scalars = {
 };
 
 export type TMutation = {
+  publishPosts: TPost;
   signIn: TSignInResult;
   signUp: TUser;
-  sso: TUser;
+  sso: TSignInResult;
+};
+
+
+export type TMutationPublishPostsArgs = {
+  post: Scalars['String'];
 };
 
 
@@ -38,7 +44,18 @@ export type TMutationSsoArgs = {
   input: TSsoInput;
 };
 
+export type TPost = {
+  createdAt: Scalars['DateTime'];
+  id: Scalars['ID'];
+  post: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
+  user: TUser;
+  version: Scalars['Int'];
+};
+
 export type TQuery = {
+  myPosts: Array<TPost>;
+  posts: Array<TPost>;
   user: TUser;
   users: Array<TUser>;
 };
@@ -54,11 +71,12 @@ export type TSignInInput = {
 };
 
 export type TSignInResult = {
+  avatar: Scalars['String'];
   createdAt: Scalars['DateTime'];
   email: Scalars['String'];
   id: Scalars['ID'];
   name: Scalars['String'];
-  oauthId: Scalars['String'];
+  posts: TPost;
   token: Scalars['String'];
   updatedAt: Scalars['DateTime'];
   version: Scalars['Int'];
@@ -75,11 +93,12 @@ export type TSsoInput = {
 };
 
 export type TUser = {
+  avatar: Scalars['String'];
   createdAt: Scalars['DateTime'];
   email: Scalars['String'];
   id: Scalars['ID'];
   name: Scalars['String'];
-  oauthId: Scalars['String'];
+  posts: TPost;
   updatedAt: Scalars['DateTime'];
   version: Scalars['Int'];
 };
@@ -89,7 +108,14 @@ export type TSsoMutationVariables = Exact<{
 }>;
 
 
-export type TSsoMutation = { sso: { id: string, name: string, email: string, createdAt: string, updatedAt: string, version: number } };
+export type TSsoMutation = { sso: { id: string, avatar: string, name: string, email: string, createdAt: string, updatedAt: string, version: number, token: string } };
+
+export type TPublishPostsMutationVariables = Exact<{
+  input: Scalars['String'];
+}>;
+
+
+export type TPublishPostsMutation = { publishPosts: { id: string, post: string, createdAt: string, updatedAt: string, version: number, user: { id: string, avatar: string, name: string, email: string, createdAt: string, updatedAt: string, version: number } } };
 
 export type TUserQueryVariables = Exact<{
   input: Scalars['String'];
@@ -103,11 +129,13 @@ export const SsoDocument = gql`
     mutation sso($input: SsoInput!) {
   sso(input: $input) {
     id
+    avatar
     name
     email
     createdAt
     updatedAt
     version
+    token
   }
 }
     `;
@@ -137,6 +165,52 @@ export function useSsoMutation(baseOptions?: Apollo.MutationHookOptions<TSsoMuta
 export type SsoMutationHookResult = ReturnType<typeof useSsoMutation>;
 export type SsoMutationResult = Apollo.MutationResult<TSsoMutation>;
 export type SsoMutationOptions = Apollo.BaseMutationOptions<TSsoMutation, TSsoMutationVariables>;
+export const PublishPostsDocument = gql`
+    mutation publishPosts($input: String!) {
+  publishPosts(post: $input) {
+    id
+    post
+    user {
+      id
+      avatar
+      name
+      email
+      createdAt
+      updatedAt
+      version
+    }
+    createdAt
+    updatedAt
+    version
+  }
+}
+    `;
+export type TPublishPostsMutationFn = Apollo.MutationFunction<TPublishPostsMutation, TPublishPostsMutationVariables>;
+
+/**
+ * __usePublishPostsMutation__
+ *
+ * To run a mutation, you first call `usePublishPostsMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `usePublishPostsMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [publishPostsMutation, { data, loading, error }] = usePublishPostsMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function usePublishPostsMutation(baseOptions?: Apollo.MutationHookOptions<TPublishPostsMutation, TPublishPostsMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<TPublishPostsMutation, TPublishPostsMutationVariables>(PublishPostsDocument, options);
+      }
+export type PublishPostsMutationHookResult = ReturnType<typeof usePublishPostsMutation>;
+export type PublishPostsMutationResult = Apollo.MutationResult<TPublishPostsMutation>;
+export type PublishPostsMutationOptions = Apollo.BaseMutationOptions<TPublishPostsMutation, TPublishPostsMutationVariables>;
 export const UserDocument = gql`
     query user($input: String!) {
   user(name: $input) {

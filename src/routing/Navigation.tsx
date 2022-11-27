@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import { useUserContext } from '../context';
 import LoginOutlet from './LoginOutlet';
 import PrivateOutlet from './PrivateOutlet';
 import LoaderFallback from './LoaderFallback';
@@ -18,33 +19,40 @@ import HomePage from 'pages/Home';
 
 import { ROUTES } from 'constants/routes';
 
-const Navigation = () => (
-  <Suspense fallback={<LoaderFallback />}>
-    <ScrollToTop>
-      <Routes>
-        <Route element={<GreyLayout />}>
-          <Route path="profile" element={<PageLayout variant="sidebarLeft" />}>
-            <Route element={<PrivateOutlet />}>
-              <Route element={<ProfileInfo />} path={ROUTES.PROFILE} />
+const Navigation = () => {
+  const { isLoggedIn } = useUserContext();
+
+  return (
+    <Suspense fallback={<LoaderFallback />}>
+      <ScrollToTop>
+        <Routes>
+          <Route element={<GreyLayout />}>
+            <Route
+              path="profile"
+              element={<PageLayout variant="sidebarLeft" />}
+            >
+              <Route element={<PrivateOutlet />}>
+                <Route element={<ProfileInfo />} path={ROUTES.PROFILE} />
+              </Route>
             </Route>
           </Route>
-        </Route>
-        <Route path={ROUTES.OAUTH_REDIRECT} element={<OauthRedirect />} />
+          <Route path={ROUTES.OAUTH_REDIRECT} element={<OauthRedirect />} />
 
-        <Route element={<PageLayout />}>
-          <Route element={<LoginOutlet />}>
-            <Route element={<Authentication />} path={ROUTES.LOGIN} />
+          <Route element={<PageLayout />}>
+            <Route element={<LoginOutlet />}>
+              <Route element={<Authentication />} path={ROUTES.LOGIN} />
+            </Route>
           </Route>
-        </Route>
 
-        <Route element={<PublicLayout />}>
-          <Route path={ROUTES.HOME} element={<HomePage />} />
-        </Route>
-        <Route element={<GreyLayout />}>
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </ScrollToTop>
-  </Suspense>
-);
+          <Route element={isLoggedIn ? <PageLayout /> : <PublicLayout />}>
+            <Route path={ROUTES.HOME} element={<HomePage />} />
+          </Route>
+          <Route element={<GreyLayout />}>
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </ScrollToTop>
+    </Suspense>
+  );
+};
 export default Navigation;

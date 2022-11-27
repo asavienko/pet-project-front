@@ -40,25 +40,6 @@ export const getHumanizedTimeZoneList = () => {
     );
 
   return t;
-
-  // const grouppedByOffset = getTimeZones().reduce((acc, zone) => {
-  //   const offset = zone.currentTimeOffsetInMinutes;
-
-  //   if (!acc[offset]) {
-  //     acc[offset] = [];
-  //   }
-
-  //   // if (zone.mainCities.find((x) => x === 'Cancún')) {
-  //   //   alert('found');
-  //   // }
-
-  //   acc[offset].push(zone);
-
-  //   return acc;
-  // }, {} as Record<number, TimeZone[]>);
-
-  // return grouppedByOffset;
-  // console.log('grouppedByOffset', grouppedByOffset);
 };
 
 export const getTimeZoneOptions = () =>

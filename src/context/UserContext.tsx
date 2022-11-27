@@ -1,6 +1,7 @@
 import React, {
   createContext,
-  useCallback,
+  Dispatch,
+  SetStateAction,
   useContext,
   useEffect,
   useState,
@@ -8,21 +9,15 @@ import React, {
 import { useApolloClient } from '@apollo/client';
 import { useSnackbar } from 'notistack';
 import { useNavigate } from 'react-router-dom';
-import { useSearchParam } from 'react-use';
-import LoadingLayout from 'components/Layouts/LoadingLayout';
 import useTranslation from 'hooks/useTranslation';
 import { TUser } from 'types/user';
-import { LOGIN_REDIRECT_ROUTE } from 'constants/index';
 import { AFTER_LOGIN_ROUTE, SIGNOUT_ROUTE } from 'constants/routes';
-import { UserDocument, useSsoMutation, useUserQuery } from 'generated/graphql';
 
 type TUserContextProvider = {
   user: TUser;
   isLoggedIn: boolean;
-  isLoading: boolean;
   isPro: boolean;
-  setUser: (user: TUser) => void;
-  login: (credentials: any) => Promise<void>; // TODO: define credentials type
+  setUser: Dispatch<SetStateAction<TUser | null>>;
   logout: () => Promise<void>;
   redirectAfterLogin: () => void;
 };
@@ -30,87 +25,20 @@ type TUserContextProvider = {
 const UserContext = createContext({} as TUserContextProvider);
 
 const UserContextProvider: React.FC<any> = (props) => {
-  const [isLoading, setLoading] = useState(true);
   const [user, setUser] = useState<TUser>(null);
-
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const { t } = useTranslation();
-  const redirectUrl = useSearchParam('redirect');
 
   const client = useApolloClient();
 
-  const getProfile = async () => {
-    try {
-      const { data } =
-        (await client.query({
-          query: UserDocument,
-          fetchPolicy: 'network-only',
-        })) || {};
-
-      setUser((newUser: any) =>
-        newUser ? { ...newUser, ...data?.profile } : { ...newUser?.profile }
-      );
-
-      setLoading(() => false);
-    } catch (error) {
-      console.error('getProfile error', error);
-      setLoading(false);
-    }
-  };
-
-  const getCurrentUser = async (): Promise<TUser> => {
-    try {
-      const user = null;
-
-      if (user == null) {
-        return null;
-      }
-
-      const { username } = user;
-
-      return {
-        id: username,
-      };
-    } catch (error) {
-      console.error('getCurrentUser error', error);
-      throw error;
-    }
-  };
-
   const redirectAfterLogin = () => {
-    const redirectRoute =
-      sessionStorage.getItem(LOGIN_REDIRECT_ROUTE) || redirectUrl;
-    sessionStorage.removeItem(LOGIN_REDIRECT_ROUTE);
-    navigate(redirectRoute || AFTER_LOGIN_ROUTE);
+    navigate(AFTER_LOGIN_ROUTE);
   };
 
-  const { data: userData } = useUserQuery({
-    fetchPolicy: 'cache-only',
-  });
+  const init = () => {};
 
-  useEffect(() => {
-    if (userData) {
-      // setUser({ ...user, ...userData });
-    }
-  }, [userData]);
-
-  const init = useCallback(async () => {
-    try {
-      setLoading(true);
-      // const user = await getCurrentUser();
-
-      // setUser(user);
-      await getProfile();
-    } catch (error) {
-      console.error(1, error);
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    init();
-  }, [init]);
+  useEffect(init, []);
 
   const logout: () => Promise<void> = async () => {
     try {
@@ -126,32 +54,6 @@ const UserContextProvider: React.FC<any> = (props) => {
     }
   };
 
-  const [ssoSignIn] = useSsoMutation();
-
-  const login = async (credentials: any) => {
-    try {
-      const data = await ssoSignIn(credentials);
-      console.log(data);
-      setUser(data);
-    } catch (error) {
-      console.error(error);
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      await register(credentials);
-    }
-  };
-
-  const register = async (credentials: any) => {
-    try {
-      await login(credentials);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  if (user == null && isLoading) {
-    return <LoadingLayout />;
-  }
-
   const isPro = () => Boolean(user && user.pro);
 
   return (
@@ -159,9 +61,7 @@ const UserContextProvider: React.FC<any> = (props) => {
       value={{
         user,
         isLoggedIn: Boolean(user),
-        isLoading,
         setUser,
-        login,
         logout,
         redirectAfterLogin,
         isPro: isPro(),

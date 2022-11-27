@@ -13,16 +13,16 @@ import Error from 'components/templates/Error';
 
 function App() {
   return (
-    <ApolloProvider client={client()}>
-      <InternalizationContextProvider>
-        <StyledEngineProvider injectFirst>
-          <ThemeProvider theme={theme}>
-            <ErrorBoundary
-              onError={(e) => {
-                console.log(e);
-              }}
-              fallbackRender={() => <Error />}
-            >
+    <InternalizationContextProvider>
+      <ErrorBoundary
+        onError={(e) => {
+          console.log(e);
+        }}
+        fallbackRender={() => <Error />}
+      >
+        <ApolloProvider client={client()}>
+          <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
               <SnackbarProvider {...snackbarConfig}>
                 <Router>
                   <UserContextProvider>
@@ -30,11 +30,11 @@ function App() {
                   </UserContextProvider>
                 </Router>
               </SnackbarProvider>
-            </ErrorBoundary>
-          </ThemeProvider>
-        </StyledEngineProvider>
-      </InternalizationContextProvider>
-    </ApolloProvider>
+            </ThemeProvider>
+          </StyledEngineProvider>
+        </ApolloProvider>
+      </ErrorBoundary>
+    </InternalizationContextProvider>
   );
 }
 
