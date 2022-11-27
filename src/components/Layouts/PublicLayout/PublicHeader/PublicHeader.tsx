@@ -22,7 +22,7 @@ const PublicHeader = () => (
           variant={'contained'}
           className={styles.signInButton}
         >
-          <T id="common.signIn" defaultMessage={'Sign In'} />
+          <T defaultMessage={'Sign In'} />
         </Button>
       </Link>
       <MobileMenu />

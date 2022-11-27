@@ -92,7 +92,7 @@ const MobileMenu = ({ authMenu }: TProps) => {
               className={styles.bottomButton}
               onClick={handleToggle}
             >
-              <T id="common.signIn" defaultMessage={'Sign In'} />
+              <T defaultMessage={'Sign In'} />
             </Button>
           </div>
         )}

@@ -7,7 +7,6 @@ import styles from './styles.module.scss';
 import { useUserContext } from 'context';
 import { T } from 'i18n/translate';
 import { menuItems } from 'constants/menuItems';
-import { getFullName } from 'utils/profile';
 import useTranslation from 'hooks/useTranslation';
 import avatar from 'styles/components/avatar.module.scss';
 
@@ -29,7 +28,7 @@ const ProfileMenu = ({ onlyPhoto }: TProps) => {
 
   return (
     <Box display={'flex'} alignItems={'center'}>
-      <Box ml={5}>
+      <Box ml={5} mr={5}>
         {user?.avatar ? (
           <img
             src={user.avatar}
@@ -53,7 +52,7 @@ const ProfileMenu = ({ onlyPhoto }: TProps) => {
           }}
           endIcon={<RiArrowDropDownLine />}
         >
-          {getFullName(user)}
+          {user.name}
         </Button>
       )}
       {!onlyPhoto && (
@@ -65,15 +64,14 @@ const ProfileMenu = ({ onlyPhoto }: TProps) => {
           anchorEl={anchorEl}
           onClose={handleClose}
         >
-          {user.isFinished &&
-            menuItems.map(({ to, label, icon: Icon }, index) => (
-              <NavLink key={index} to={to} className={styles.menuItem}>
-                <MenuItem onClick={handleClose}>
-                  <Icon />
-                  {label}
-                </MenuItem>
-              </NavLink>
-            ))}
+          {menuItems.map(({ to, label, icon: Icon }, index) => (
+            <NavLink key={index} to={to} className={styles.menuItem}>
+              <MenuItem onClick={handleClose}>
+                <Icon />
+                {label}
+              </MenuItem>
+            </NavLink>
+          ))}
 
           {user.isFinished && <Divider />}
           <MenuItem disableRipple className={styles.menuItem} onClick={logout}>

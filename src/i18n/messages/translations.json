@@ -19,6 +19,10 @@
     "description": "<no description>",
     "message": "Are you sure you want to close modal?"
   },
+  "3kJE8G": {
+    "description": "<no description>",
+    "message": "Something went wrong. Try again."
+  },
   "3tSD3u": {
     "description": "<no description>",
     "message": "Continue with:"
@@ -70,6 +74,10 @@
   "DSY9/N": {
     "description": "<no description>",
     "message": "Check your Junk folder or <link>Resend e-mail</link>"
+  },
+  "FN9Itc": {
+    "description": "<no description>",
+    "message": "Write down your post"
   },
   "FpxElY": {
     "description": "<no description>",
@@ -183,6 +191,10 @@
     "description": "<no description>",
     "message": "Please enter email"
   },
+  "eKv7yX": {
+    "description": "<no description>",
+    "message": "Post"
+  },
   "ejEGdx": {
     "description": "<no description>",
     "message": "Home"
@@ -194,6 +206,10 @@
   "hjXRmD": {
     "description": "<no description>",
     "message": "Please select country"
+  },
+  "iYbLlX": {
+    "description": "<no description>",
+    "message": "Authorization failed"
   },
   "jBjt4h": {
     "description": "<no description>",
@@ -247,6 +263,10 @@
     "description": "<no description>",
     "message": "ZIP"
   },
+  "sXAA5d": {
+    "description": "<no description>",
+    "message": "Hi {name} you successfully login"
+  },
   "subscribeDialog.title": {
     "description": "<no description>",
     "message": "Upgrade Plan"
@@ -275,6 +295,10 @@
     "description": "<no description>",
     "message": "Profile successfully updated"
   },
+  "wO9wb5": {
+    "description": "<no description>",
+    "message": "GitHub"
+  },
   "wRZ3rX": {
     "description": "<no description>",
     "message": "Phone is invalid"
@@ -286,5 +310,9 @@
   "x3woOG": {
     "description": "<no description>",
     "message": "Fill all empty guest emails fields before adding new one"
+  },
+  "xvlJLn": {
+    "description": "<no description>",
+    "message": "Write some post to test functionality"
   }
 }
