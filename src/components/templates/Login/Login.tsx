@@ -2,7 +2,7 @@ import React from 'react';
 import Typography from '@mui/material/Typography/index';
 
 import useTranslation from '../../../hooks/useTranslation';
-import OathSignIn from '../../OathSignIn';
+import OauthSignIn from '../../OauthSignIn';
 import styles from './Login.module.scss';
 
 type TProps = {
@@ -17,7 +17,7 @@ const Login: React.VFC<TProps> = ({ onSubmit }) => {
       <Typography variant="h1" color="primary" textAlign="center">
         {t({ defaultMessage: 'Sign In' })}
       </Typography>
-      <OathSignIn />
+      <OauthSignIn />
     </div>
   );
 };

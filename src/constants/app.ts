@@ -13,3 +13,5 @@ export const LINKEDIN_LINK = '';
 export const GITHUB_AUTH_LOGIN_URL = 'https://github.com/login/oauth/authorize';
 
 export const TOKEN_KEY = 'TOKEN';
+
+export const DEFAULT_POSTS_LIMIT = 3;

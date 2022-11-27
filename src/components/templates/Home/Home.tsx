@@ -3,8 +3,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Skeleton } from '@mui/material';
 import Paper from '@mui/material/Paper';
+// @ts-ignore
+import InfiniteScroll from 'react-infinite-scroller';
 import useTranslation from '../../../hooks/useTranslation';
 import { Markdown } from '../../Markdown';
 import MarkdownController from '../../Controllers/MarkdownController';
@@ -13,13 +15,13 @@ import { T } from '../../../i18n/translate';
 
 // @ts-ignore
 import {
-  usePostsLazyQuery,
-  usePostsQuery,
+  usePostsQueryQuery,
   usePublishPostsMutation,
 } from '../../../generated/graphql';
 import Button from '../../Buttons/Button';
 import Loader from '../../Loader';
 import Divider from '../../Divider';
+import { DEFAULT_POSTS_LIMIT } from '../../../constants/app';
 import schema from './Post.schema';
 
 type TFormValues = { post: string };
@@ -39,27 +41,37 @@ const Home = () => {
     },
   });
 
-  const [useMutation, { data, loading, error }] = usePublishPostsMutation();
+  const [useMutation, { loading }] = usePublishPostsMutation();
   const {
     data: { posts } = {},
     loading: loadingPosts,
-    refetch,
-  } = usePostsQuery();
+    fetchMore,
+  } = usePostsQueryQuery({
+    fetchPolicy: 'cache-first',
+    variables: { offset: 0, limit: DEFAULT_POSTS_LIMIT },
+  });
 
   const handleFormSubmit = async (result: TFormValues) => {
     await useMutation({
       variables: { input: result.post },
-      onCompleted: () => {
+      onCompleted: (response) => {
         reset();
-        refetch();
+        fetchMore({
+          variables: { limit: 0, offset: 0 },
+          updateQuery: (prev) => ({
+            ...prev,
+            posts: [response.publishPosts, ...(prev.posts || [])],
+          }),
+        });
       },
       // TODO Add Error handling for gql query
       onError: () => console.error('Tri again'),
     });
   };
+
   return (
     <Grid item xs={12} md={10} lg={8} mt={6}>
-      <Loader loading={loading || loadingPosts} />
+      <Loader loading={loading} />
 
       <Box
         display="flex"
@@ -90,17 +102,49 @@ const Home = () => {
 
         <Divider />
 
-        {posts?.map(({ post }) => (
-          <Paper
-            variant="outlined"
-            sx={{
-              mt: 4,
-              padding: 2,
-            }}
-          >
-            <Markdown navigation>{post}</Markdown>
-          </Paper>
-        ))}
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={(page: number) =>
+            fetchMore({
+              variables: {
+                offset: (page || 1) * DEFAULT_POSTS_LIMIT,
+                limit: DEFAULT_POSTS_LIMIT,
+              },
+              updateQuery: (prev, { fetchMoreResult }) => {
+                if (!fetchMoreResult) return prev;
+                return {
+                  ...prev,
+                  posts: [
+                    ...(prev.posts || []),
+                    ...(fetchMoreResult.posts || []),
+                  ],
+                };
+              },
+            })
+          }
+          hasMore={!loadingPosts}
+          loader={
+            <>
+              {loadingPosts &&
+                Array(DEFAULT_POSTS_LIMIT)
+                  .fill('')
+                  .map((_, index) => <Skeleton key={index} />)}
+            </>
+          }
+        >
+          {posts?.map(({ post }, index) => (
+            <Paper
+              key={index}
+              variant="outlined"
+              sx={{
+                mt: 4,
+                padding: 2,
+              }}
+            >
+              <Markdown>{post}</Markdown>
+            </Paper>
+          ))}
+        </InfiniteScroll>
       </Box>
     </Grid>
   );

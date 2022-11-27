@@ -15,7 +15,7 @@ import { setToken } from '../../utils/token';
 import styles from './OathSignIn.module.scss';
 import useTranslation from 'hooks/useTranslation';
 
-const OathSignIn = () => {
+const OauthSignIn = () => {
   const { t } = useTranslation();
 
   const { enqueueSnackbar } = useSnackbar();
@@ -42,6 +42,7 @@ const OathSignIn = () => {
       variables: { input: { code } },
       onCompleted: (data) => {
         setUser(data?.sso);
+        setToken(data?.sso?.token);
         enqueueSnackbar(
           <T
             defaultMessage="Hi {name} you successfully login"
@@ -87,4 +88,4 @@ const OathSignIn = () => {
   );
 };
 
-export default OathSignIn;
+export default OauthSignIn;

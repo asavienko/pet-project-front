@@ -14,3 +14,18 @@ export const SSO = gql`
     }
   }
 `;
+
+export const EXCHANGE_TOKEN = gql`
+  query exchangeToken {
+    exchangeToken {
+      id
+      avatar
+      name
+      email
+      createdAt
+      updatedAt
+      version
+      token
+    }
+  }
+`;

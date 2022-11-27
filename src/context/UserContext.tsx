@@ -9,9 +9,11 @@ import React, {
 import { useApolloClient } from '@apollo/client';
 import { useSnackbar } from 'notistack';
 import { useNavigate } from 'react-router-dom';
+import { useExchangeTokenQuery } from '../generated/graphql';
 import useTranslation from 'hooks/useTranslation';
 import { TUser } from 'types/user';
 import { AFTER_LOGIN_ROUTE, SIGNOUT_ROUTE } from 'constants/routes';
+import { resetToken } from '../utils/token';
 
 type TUserContextProvider = {
   user: TUser;
@@ -36,13 +38,10 @@ const UserContextProvider: React.FC<any> = (props) => {
     navigate(AFTER_LOGIN_ROUTE);
   };
 
-  const init = () => {};
-
-  useEffect(init, []);
-
   const logout: () => Promise<void> = async () => {
     try {
       setUser(null);
+      resetToken();
 
       navigate(SIGNOUT_ROUTE);
       await client.resetStore();
@@ -53,6 +52,18 @@ const UserContextProvider: React.FC<any> = (props) => {
       });
     }
   };
+
+  const { refetch } = useExchangeTokenQuery({
+    onCompleted: ({ exchangeToken }) => {
+      setUser(exchangeToken);
+    },
+  });
+
+  const init = () => {
+    refetch();
+  };
+
+  useEffect(init, []);
 
   const isPro = () => Boolean(user && user.pro);
 

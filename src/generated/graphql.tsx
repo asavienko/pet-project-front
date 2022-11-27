@@ -54,10 +54,17 @@ export type TPost = {
 };
 
 export type TQuery = {
+  exchangeToken: TSignInResult;
   myPosts: Array<TPost>;
   posts: Array<TPost>;
   user: TUser;
   users: Array<TUser>;
+};
+
+
+export type TQueryPostsArgs = {
+  limit: Scalars['Int'];
+  offset: Scalars['Int'];
 };
 
 
@@ -110,6 +117,11 @@ export type TSsoMutationVariables = Exact<{
 
 export type TSsoMutation = { sso: { id: string, avatar: string, name: string, email: string, createdAt: string, updatedAt: string, version: number, token: string } };
 
+export type TExchangeTokenQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TExchangeTokenQuery = { exchangeToken: { id: string, avatar: string, name: string, email: string, createdAt: string, updatedAt: string, version: number, token: string } };
+
 export type TPublishPostsMutationVariables = Exact<{
   input: Scalars['String'];
 }>;
@@ -117,10 +129,13 @@ export type TPublishPostsMutationVariables = Exact<{
 
 export type TPublishPostsMutation = { publishPosts: { id: string, post: string, createdAt: string, updatedAt: string, version: number, user: { id: string, avatar: string, name: string, email: string, createdAt: string, updatedAt: string, version: number } } };
 
-export type TPostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type TPostsQueryQueryVariables = Exact<{
+  offset: Scalars['Int'];
+  limit: Scalars['Int'];
+}>;
 
 
-export type TPostsQuery = { posts: Array<{ id: string, post: string, createdAt: string, updatedAt: string, version: number, user: { id: string, avatar: string, name: string, email: string, createdAt: string, updatedAt: string, version: number } }> };
+export type TPostsQueryQuery = { posts: Array<{ id: string, post: string, createdAt: string, updatedAt: string, version: number, user: { id: string } }> };
 
 export type TUserQueryVariables = Exact<{
   input: Scalars['String'];
@@ -170,6 +185,47 @@ export function useSsoMutation(baseOptions?: Apollo.MutationHookOptions<TSsoMuta
 export type SsoMutationHookResult = ReturnType<typeof useSsoMutation>;
 export type SsoMutationResult = Apollo.MutationResult<TSsoMutation>;
 export type SsoMutationOptions = Apollo.BaseMutationOptions<TSsoMutation, TSsoMutationVariables>;
+export const ExchangeTokenDocument = gql`
+    query exchangeToken {
+  exchangeToken {
+    id
+    avatar
+    name
+    email
+    createdAt
+    updatedAt
+    version
+    token
+  }
+}
+    `;
+
+/**
+ * __useExchangeTokenQuery__
+ *
+ * To run a query within a React component, call `useExchangeTokenQuery` and pass it any options that fit your needs.
+ * When your component renders, `useExchangeTokenQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useExchangeTokenQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useExchangeTokenQuery(baseOptions?: Apollo.QueryHookOptions<TExchangeTokenQuery, TExchangeTokenQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TExchangeTokenQuery, TExchangeTokenQueryVariables>(ExchangeTokenDocument, options);
+      }
+export function useExchangeTokenLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TExchangeTokenQuery, TExchangeTokenQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TExchangeTokenQuery, TExchangeTokenQueryVariables>(ExchangeTokenDocument, options);
+        }
+export type ExchangeTokenQueryHookResult = ReturnType<typeof useExchangeTokenQuery>;
+export type ExchangeTokenLazyQueryHookResult = ReturnType<typeof useExchangeTokenLazyQuery>;
+export type ExchangeTokenQueryResult = Apollo.QueryResult<TExchangeTokenQuery, TExchangeTokenQueryVariables>;
 export const PublishPostsDocument = gql`
     mutation publishPosts($input: String!) {
   publishPosts(post: $input) {
@@ -216,19 +272,13 @@ export function usePublishPostsMutation(baseOptions?: Apollo.MutationHookOptions
 export type PublishPostsMutationHookResult = ReturnType<typeof usePublishPostsMutation>;
 export type PublishPostsMutationResult = Apollo.MutationResult<TPublishPostsMutation>;
 export type PublishPostsMutationOptions = Apollo.BaseMutationOptions<TPublishPostsMutation, TPublishPostsMutationVariables>;
-export const PostsDocument = gql`
-    query posts {
-  posts {
+export const PostsQueryDocument = gql`
+    query postsQuery($offset: Int!, $limit: Int!) {
+  posts(limit: $limit, offset: $offset) {
     id
     post
     user {
       id
-      avatar
-      name
-      email
-      createdAt
-      updatedAt
-      version
     }
     createdAt
     updatedAt
@@ -238,31 +288,33 @@ export const PostsDocument = gql`
     `;
 
 /**
- * __usePostsQuery__
+ * __usePostsQueryQuery__
  *
- * To run a query within a React component, call `usePostsQuery` and pass it any options that fit your needs.
- * When your component renders, `usePostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `usePostsQueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePostsQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = usePostsQuery({
+ * const { data, loading, error } = usePostsQueryQuery({
  *   variables: {
+ *      offset: // value for 'offset'
+ *      limit: // value for 'limit'
  *   },
  * });
  */
-export function usePostsQuery(baseOptions?: Apollo.QueryHookOptions<TPostsQuery, TPostsQueryVariables>) {
+export function usePostsQueryQuery(baseOptions: Apollo.QueryHookOptions<TPostsQueryQuery, TPostsQueryQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<TPostsQuery, TPostsQueryVariables>(PostsDocument, options);
+        return Apollo.useQuery<TPostsQueryQuery, TPostsQueryQueryVariables>(PostsQueryDocument, options);
       }
-export function usePostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TPostsQuery, TPostsQueryVariables>) {
+export function usePostsQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TPostsQueryQuery, TPostsQueryQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<TPostsQuery, TPostsQueryVariables>(PostsDocument, options);
+          return Apollo.useLazyQuery<TPostsQueryQuery, TPostsQueryQueryVariables>(PostsQueryDocument, options);
         }
-export type PostsQueryHookResult = ReturnType<typeof usePostsQuery>;
-export type PostsLazyQueryHookResult = ReturnType<typeof usePostsLazyQuery>;
-export type PostsQueryResult = Apollo.QueryResult<TPostsQuery, TPostsQueryVariables>;
+export type PostsQueryQueryHookResult = ReturnType<typeof usePostsQueryQuery>;
+export type PostsQueryLazyQueryHookResult = ReturnType<typeof usePostsQueryLazyQuery>;
+export type PostsQueryQueryResult = Apollo.QueryResult<TPostsQueryQuery, TPostsQueryQueryVariables>;
 export const UserDocument = gql`
     query user($input: String!) {
   user(name: $input) {

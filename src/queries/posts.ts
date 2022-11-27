@@ -22,18 +22,12 @@ export const PUBLISH_POST = gql`
 `;
 
 export const GET_ALL_POSTS = gql`
-  query posts {
-    posts {
+  query postsQuery($offset: Int!, $limit: Int!) {
+    posts(limit: $limit, offset: $offset) {
       id
       post
       user {
         id
-        avatar
-        name
-        email
-        createdAt
-        updatedAt
-        version
       }
       createdAt
       updatedAt
