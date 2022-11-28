@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "serve": "npx vite preview --port 8080",
+    "serve": "npx vite preview --port $PORT",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "extract-translations": "./scripts/extract-translations.sh",
