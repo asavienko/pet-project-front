@@ -73,7 +73,7 @@ const Home = () => {
   const [removePostMutation] = useRemovePostMutation();
 
   const onDelete = (id: number) => {
-    removePostMutation({ variables: { input: { id } } });
+    removePostMutation({ variables: { input: { id: `${id}` } } });
   };
 
   return (
@@ -141,7 +141,7 @@ const Home = () => {
         >
           {posts?.map(({ post, id }, index) => (
             <Box>
-              <Button onClick={() => onDelete(id)}>
+              <Button onClick={() => onDelete(+id)}>
                 <T defaultMessage={'Remove'} />
               </Button>
               <Paper

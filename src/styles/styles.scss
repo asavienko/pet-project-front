@@ -1,9 +1,7 @@
-@import './mixins';
+@import './_mixins.scss';
 
 @import './components/autocomplete.scss';
 @import './components/intro.js.scss';
-
-;
 
 :root {
   --primary-color: #0075FF;
@@ -96,10 +94,6 @@ body {
   }
 }
 
-// this style breaks mui calendar switching between months -> animation doesn't look good in this case
-// body * {
-//   transition: var(--transition);
-// }
 
 * {
   box-sizing: border-box;

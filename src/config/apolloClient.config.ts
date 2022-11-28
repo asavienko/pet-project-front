@@ -6,6 +6,7 @@ import { getToken } from '../utils/token';
 
 const cache = new InMemoryCache();
 const publicLink = new HttpLink({
+  // @ts-ignore
   uri: import.meta.env.VITE_GRAPHQL_ENDPOINT,
 });
 

@@ -22,6 +22,7 @@ type TUserContextProvider = {
   setUser: Dispatch<SetStateAction<TUser | null>>;
   logout: () => Promise<void>;
   redirectAfterLogin: () => void;
+  isLoading: boolean;
 };
 
 const UserContext = createContext({} as TUserContextProvider);
@@ -54,7 +55,7 @@ const UserContextProvider: React.FC<any> = (props) => {
     }
   };
 
-  const { refetch } = useExchangeTokenQuery({
+  const { refetch, loading: isLoading } = useExchangeTokenQuery({
     onCompleted: ({ exchangeToken }) => {
       setUser(exchangeToken);
     },
@@ -76,6 +77,7 @@ const UserContextProvider: React.FC<any> = (props) => {
         setUser,
         logout,
         redirectAfterLogin,
+        isLoading,
         isPro: isPro(),
       }}
     >

@@ -4,12 +4,31 @@ import react from '@vitejs/plugin-react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { defineConfig } from 'vite';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
+import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill';
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  define: {
-    global: { test: 1 },
-  },
+  // @ts-ignore
   plugins: [react({ babel: { babelrc: true } })],
+
+  optimizeDeps: {
+    esbuildOptions: {
+      // Node.js global to browser globalThis
+      define: {
+        global: 'globalThis',
+      },
+      plugins: [
+        NodeGlobalsPolyfillPlugin({
+          process: true,
+          buffer: true,
+        }),
+        NodeModulesPolyfillPlugin(),
+      ],
+    },
+  },
+
   resolve: {
     alias: [
       {

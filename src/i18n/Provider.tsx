@@ -16,6 +16,7 @@ type TProps = {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 Object.entries(messages).forEach(([language, languageMessages]) => {
   Object.entries(languageMessages).forEach(([key, message]) => {
+    // @ts-ignore
     // eslint-disable-next-line no-param-reassign
     (languageMessages as any)[key] = message.message;
   });
