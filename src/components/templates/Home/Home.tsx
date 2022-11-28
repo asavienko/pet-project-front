@@ -141,9 +141,9 @@ const Home = () => {
         >
           {posts?.map(({ post, id }, index) => (
             <Box>
-              <Button onClick={() => onDelete(+id)}>
+              {/*   <Button onClick={() => onDelete(+id)}>
                 <T defaultMessage={'Remove'} />
-              </Button>
+              </Button> */}
               <Paper
                 key={index}
                 variant="outlined"
