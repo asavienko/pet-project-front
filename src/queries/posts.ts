@@ -36,7 +36,7 @@ export const GET_ALL_POSTS = gql`
   }
 `;
 
-export const DELETE_POST = gql`
+export const REMOVE_POST = gql`
   mutation removePost($input: RemovePostInput!) {
     removePost(id: $input) {
       successful
