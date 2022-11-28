@@ -107,6 +107,7 @@
     "validator": "^13.7.0",
     "web-vitals": "^1.1.2",
     "weekstart": "^1.1.0",
+    "@vitejs/plugin-react": "^2.2.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
@@ -134,7 +135,6 @@
     "@types/validator": "^13.7.0",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
-    "@vitejs/plugin-react": "^2.2.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^19.0.2",
     "eslint-config-prettier": "^8.3.0",
