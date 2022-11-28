@@ -83,6 +83,10 @@
     "description": "<no description>",
     "message": "Verification"
   },
+  "G/yZLu": {
+    "description": "<no description>",
+    "message": "Remove"
+  },
   "GRpnsv": {
     "description": "<no description>",
     "message": "Guests emails"
@@ -178,10 +182,6 @@
   "common.error": {
     "description": "<no description>",
     "message": "Error"
-  },
-  "common.signIn": {
-    "description": "<no description>",
-    "message": "Sign In"
   },
   "cyR7Kh": {
     "description": "<no description>",

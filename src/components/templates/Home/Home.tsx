@@ -17,6 +17,7 @@ import { T } from '../../../i18n/translate';
 import {
   usePostsQueryQuery,
   usePublishPostsMutation,
+  useRemovePostMutation,
 } from '../../../generated/graphql';
 import Button from '../../Buttons/Button';
 import Loader from '../../Loader';
@@ -67,6 +68,12 @@ const Home = () => {
       // TODO Add Error handling for gql query
       onError: () => console.error('Tri again'),
     });
+  };
+
+  const [removePostMutation] = useRemovePostMutation();
+
+  const onDelete = (id: number) => {
+    removePostMutation({ variables: { input: { id } } });
   };
 
   return (
@@ -132,17 +139,22 @@ const Home = () => {
             </>
           }
         >
-          {posts?.map(({ post }, index) => (
-            <Paper
-              key={index}
-              variant="outlined"
-              sx={{
-                mt: 4,
-                padding: 2,
-              }}
-            >
-              <Markdown>{post}</Markdown>
-            </Paper>
+          {posts?.map(({ post, id }, index) => (
+            <Box>
+              <Button onClick={() => onDelete(id)}>
+                <T defaultMessage={'Remove'} />
+              </Button>
+              <Paper
+                key={index}
+                variant="outlined"
+                sx={{
+                  mt: 4,
+                  padding: 2,
+                }}
+              >
+                <Markdown>{post}</Markdown>
+              </Paper>
+            </Box>
           ))}
         </InfiniteScroll>
       </Box>

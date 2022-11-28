@@ -19,6 +19,7 @@ export type Scalars = {
 
 export type TMutation = {
   publishPosts: TPost;
+  removePost: TRemovePostResponse;
   signIn: TSignInResult;
   signUp: TUser;
   sso: TSignInResult;
@@ -27,6 +28,11 @@ export type TMutation = {
 
 export type TMutationPublishPostsArgs = {
   post: Scalars['String'];
+};
+
+
+export type TMutationRemovePostArgs = {
+  id: TRemovePostInput;
 };
 
 
@@ -70,6 +76,14 @@ export type TQueryPostsArgs = {
 
 export type TQueryUserArgs = {
   name: Scalars['String'];
+};
+
+export type TRemovePostInput = {
+  id: Scalars['ID'];
+};
+
+export type TRemovePostResponse = {
+  successful: Scalars['Boolean'];
 };
 
 export type TSignInInput = {
@@ -136,6 +150,13 @@ export type TPostsQueryQueryVariables = Exact<{
 
 
 export type TPostsQueryQuery = { posts: Array<{ id: string, post: string, createdAt: string, updatedAt: string, version: number, user: { id: string } }> };
+
+export type TRemovePostMutationVariables = Exact<{
+  input: TRemovePostInput;
+}>;
+
+
+export type TRemovePostMutation = { removePost: { successful: boolean } };
 
 export type TUserQueryVariables = Exact<{
   input: Scalars['String'];
@@ -315,6 +336,39 @@ export function usePostsQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type PostsQueryQueryHookResult = ReturnType<typeof usePostsQueryQuery>;
 export type PostsQueryLazyQueryHookResult = ReturnType<typeof usePostsQueryLazyQuery>;
 export type PostsQueryQueryResult = Apollo.QueryResult<TPostsQueryQuery, TPostsQueryQueryVariables>;
+export const RemovePostDocument = gql`
+    mutation removePost($input: RemovePostInput!) {
+  removePost(id: $input) {
+    successful
+  }
+}
+    `;
+export type TRemovePostMutationFn = Apollo.MutationFunction<TRemovePostMutation, TRemovePostMutationVariables>;
+
+/**
+ * __useRemovePostMutation__
+ *
+ * To run a mutation, you first call `useRemovePostMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRemovePostMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [removePostMutation, { data, loading, error }] = useRemovePostMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useRemovePostMutation(baseOptions?: Apollo.MutationHookOptions<TRemovePostMutation, TRemovePostMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<TRemovePostMutation, TRemovePostMutationVariables>(RemovePostDocument, options);
+      }
+export type RemovePostMutationHookResult = ReturnType<typeof useRemovePostMutation>;
+export type RemovePostMutationResult = Apollo.MutationResult<TRemovePostMutation>;
+export type RemovePostMutationOptions = Apollo.BaseMutationOptions<TRemovePostMutation, TRemovePostMutationVariables>;
 export const UserDocument = gql`
     query user($input: String!) {
   user(name: $input) {

@@ -26,7 +26,7 @@ const Footer: React.VFC<TProps> = ({ className, fullWidth }) => {
           {!isSmallDevice && (
             <LanguageSwitcher variant="text" languageVersion="short" />
           )}
-          {/* <SocialButtons className={styles.socialButtons} /> */}
+          <SocialButtons className={styles.socialButtons} />
         </div>
       </footer>
     </>

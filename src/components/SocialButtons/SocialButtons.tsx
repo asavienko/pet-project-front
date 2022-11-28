@@ -23,6 +23,7 @@ const SocialButtons: React.FC<TProps> = ({ className }) => {
         href={INSTAGRAM_LINK}
         target="_blank"
         rel="noreferrer"
+        sx={{ ml: 5, mr: 5 }}
         title={t({ defaultMessage: 'Anton Savienko LinkedIn profile' })}
       >
         <InstagramIcon fontSize="inherit" />
