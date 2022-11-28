@@ -18,7 +18,6 @@
     "@date-io/date-fns": "^2.11.0",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
-    "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
     "@formatjs/intl-pluralrules": "^4.3.2",
     "@formatjs/ts-transformer": "^3.11.1",
     "@hookform/resolvers": "^2.8.3",
@@ -111,7 +110,6 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
-    "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
     "@formatjs/cli": "^4.4.0",
     "@graphql-codegen/cli": "2.3.0",
     "@graphql-codegen/introspection": "2.1.0",
