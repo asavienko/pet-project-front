@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "serve": "node server.js",
+    "serve": "vite preview --host 0.0.0.0 --port $PORT",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "extract-translations": "./scripts/extract-translations.sh",
